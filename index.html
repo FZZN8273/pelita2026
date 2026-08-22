@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== TITLE ===== -->
+    <title>PELITA – Game Edukasi Literasi Kesehatan Nusantara</title>
+
+    <!-- ===== SEO META ===== -->
+    <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web yang mengajak remaja memahami 12 indikator literasi kesehatan WHO melalui budaya wayang Nakula dan Sadewa. Belajar kesehatan tanpa merasa digurui!" />
+    <meta name="keywords" content="PELITA, game edukasi, literasi kesehatan, 12 indikator WHO, Nakula, Sadewa, kesehatan remaja, gizi, TBC, vaksinasi, P3K" />
+    <meta name="author" content="Fauzan" />
+    <meta name="publisher" content="PELITA" />
+    <meta name="copyright" content="PELITA 2026" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ===== CANONICAL ===== -->
+    <link rel="canonical" href="https://pelita.vercel.app/" />
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- ===== OPEN GRAPH (WhatsApp, Facebook, Telegram) ===== -->
+    <meta property="og:title" content="PELITA – Game Edukasi Literasi Kesehatan Nusantara" />
+    <meta property="og:description" content="Jelajahi 12 indikator kesehatan WHO bersama wayang Nakula dan Sadewa! Belajar kesehatan jadi seru dan menyenangkan." />
+    <meta property="og:image" content="https://fzzn8273.github.io/pelita/og-image.png" />
+    <meta property="og:image:secure_url" content="https://fzzn8273.github.io/pelita/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="https://pelita.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PELITA" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PELITA – Game Edukasi Literasi Kesehatan Nusantara" />
+    <meta name="twitter:description" content="Belajar 12 indikator kesehatan WHO lewat game seru!" />
+    <meta name="twitter:image" content="https://fzzn8273.github.io/pelita/og-image.png" />
+    <meta name="twitter:site" content="@fzzn8273" />
+
+    <!-- ===== THEME COLOR ===== -->
+    <meta name="theme-color" content="#2E8B57" />
+
+    <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PELITA",
+      "url": "https://pelita.vercel.app/",
+      "image": "https://fzzn8273.github.io/pelita/og-image.png",
+      "description": "PELITA adalah game edukasi interaktif tentang 12 indikator literasi kesehatan WHO untuk remaja Indonesia.",
+      "applicationCategory": "EducationalGame",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Person",
+        "name": "Fauzan",
+        "url": "https://github.com/fzzn8273"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PELITA"
+      },
+      "datePublished": "2026-08-22",
+      "dateModified": "2026-08-22",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Pelajar SMP/SMA"
+      }
+    }
+    </script>
+
+    <!-- ===== FONTS & ICONS ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- ===== STYLE (10 Prinsip Desain Web) ===== -->
+    <style>
+        :root {
+            /* Nuansa PELITA (Kesehatan & Wayang) */
+            --hijau-medis: #2E8B57;
+            --krem-hangat: #FFF8DC;
+            --emas-wayang: #D4AF37;
+            --putih-bersih: #FFFFFF;
+            --coklat-ukiran: #5C4033;
+            --border-hitam-tipis: rgba(0, 0, 0, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 16px;
+            background-color: var(--hijau-medis);
+            background-image: radial-gradient(circle at 90% 10%, var(--krem-hangat) 0%, var(--krem-hangat) 25%, transparent 30%);
+        }
+
+        /* ===== 1. PROPORSI & KESEIMBANGAN ===== */
+        .container-website {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== 2. KONTRAST & HIERARKI ===== */
+        .floating-header {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        .hamburger {
+            background: var(--putih-bersih);
+            border: 2px solid var(--emas-wayang);
+            border-radius: 50%;
+            width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: var(--coklat-ukiran);
+            font-size: 1.4rem;
+            /* ===== 9. GERAKAN / TRANSISI ===== */
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger:hover { 
+            transform: scale(1.1); 
+            box-shadow: 0 0 20px var(--emas-wayang);
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: 58px;
+            right: 0;
+            background: var(--putih-bersih);
+            border-radius: 14px;
+            padding: 10px 0;
+            min-width: 160px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.3s ease;
+            border: 1px solid var(--emas-wayang);
+        }
+        .nav-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dropdown button {
+            display: block; width: 100%; background: transparent; border: none;
+            padding: 12px 20px; font-family: inherit; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; text-align: left; color: var(--coklat-ukiran);
+            transition: background 0.2s;
+        }
+        .nav-dropdown button:hover { background: var(--krem-hangat); }
+
+        /* ===== 3. RUANG KOSONG (WHITESPACE) & 4. KESATUAN ===== */
+        .home-wrapper { display: flex; flex-direction: column; gap: 3vh; }
+        
+        .img-section {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            line-height: 0;
+            background: var(--putih-bersih);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .img-section img { width: 100%; height: auto; display: block; }
+        
+        .header-img { border: 2px solid var(--emas-wayang); }
+        .body-img   { border: 2px solid var(--hijau-medis); }
+        .footer-img {
+            border: 2px solid var(--coklat-ukiran);
+            background: var(--coklat-ukiran);
+        }
+
+        /* Neon Border untuk Profil */
+        .profile-neon-border {
+            border-radius: 24px;
+            border: 2px solid var(--emas-wayang);
+            box-shadow: 0 0 15px var(--emas-wayang), inset 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        /* ===== 5. RITME & POLA (Divider) ===== */
+        .divider-section {
+            width: 100%;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 2.5vh;
+            margin: 4vh 0;
+        }
+        .dashed-line {
+            width: 70%; border-top: 2px dashed var(--emas-wayang); opacity: 0.5;
+        }
+        .dashed-line.small { width: 50%; }
+        .dashed-line.large { width: 85%; }
+
+        .halaman { display: none; padding: 20px 0; text-align: center; }
+        .halaman.active { display: block; }
+        
+        /* ===== 6. PENEGASAN (EMPHASIS) ===== */
+        .hero-other h2 { color: var(--putih-bersih); margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+
+        /* ===== 7. TOMBOL SPRING & HOVER ===== */
+        .btn-spring {
+            display: inline-block; margin-top: 20px; background: var(--emas-wayang);
+            color: var(--coklat-ukiran); padding: 12px 32px; border-radius: 40px;
+            text-decoration: none; font-weight: 800; font-size: 1.1rem; 
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .btn-spring:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+
+        /* ===== 8. SKALA & RESPONSIF ===== */
+        .seo-intro {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 248, 220, 0.9);
+            border-radius: 20px;
+            margin: 20px 0;
+            color: var(--coklat-ukiran);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .seo-intro h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .seo-intro p { max-width: 800px; margin: 0 auto; }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .container-website { padding: 10px; }
+            .floating-header { top: 10px; right: 10px; }
+            .hamburger { width: 44px; height: 44px; font-size: 1.2rem; }
+            .img-section { border-radius: 16px; }
+            .seo-intro h1 { font-size: 22px; }
+            .seo-intro p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER NAVIGASI ===== -->
+    <header class="floating-header" role="navigation" aria-label="Menu Utama">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu navigasi"><i class="fas fa-bars"></i></button>
+        <nav class="nav-dropdown" id="navDropdown" aria-label="Navigasi">
+            <button data-target="home"><i class="fas fa-home"></i> Home</button>
+            <button data-target="profile"><i class="fas fa-user"></i> Profile</button>
+            <button data-target="howtoplay"><i class="fas fa-gamepad"></i> Cara main</button>
+        </nav>
+    </header>
+
+    <main class="container-website">
+
+        <!-- ===== HOME ===== -->
+        <div id="home" class="home-wrapper">
+            <div class="seo-intro">
+                <h1>PELITA – Penerang Literasi Kesehatan</h1>
+                <p>
+                    PELITA adalah game edukasi yang mengemas <strong>12 indikator literasi kesehatan WHO</strong> 
+                    ke dalam petualangan wayang Nakula dan Sadewa. Belajar tentang obat, gizi, TBC, vaksinasi, 
+                    dan P3K jadi menyenangkan tanpa terasa seperti belajar!
+                </p>
+            </div>
+
+            <div class="img-section header-img">
+                <img src="page1.png" alt="Header PELITA - Game Edukasi Kesehatan" />
+            </div>
+            <div class="divider-section">
+                <div class="dashed-line large"></div>
+                <div class="dashed-line"></div>
+                <div class="dashed-line small"></div>
+                <div class="dashed-line"></div>
+            </div>
+            <div class="img-section body-img">
+                <img src="page2.png" alt="Body PELITA - 12 Indikator Kesehatan" />
+            </div>
+            <div class="divider-section">
+                <div class="dashed-line small"></div>
+                <div class="dashed-line"></div>
+                <div class="dashed-line large"></div>
+                <div class="dashed-line"></div>
+            </div>
+            <div class="img-section footer-img">
+                <img src="page3.png" alt="Footer PELITA - Ucapan Terima Kasih" />
+            </div>
+        </div>
+
+        <!-- ===== PROFILE ===== -->
+        <div id="profile" class="halaman">
+            <div style="width: 100%; display: flex; flex-direction: column; gap: 4vh;">
+                <div class="img-section profile-neon-border">
+                    <img src="profile1.png" alt="Profil Fauzan" />
+                </div>
+                <div class="img-section profile-neon-border">
+                    <img src="profile2.png" alt="Profil Roadmap PELITA" />
+                </div>
+                <div class="img-section profile-neon-border">
+                    <img src="profile3.png" alt="Profil Pembimbing" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== CARA MAIN ===== -->
+        <div id="howtoplay" class="halaman hero-other">
+            <h2>Cara Main PELITA</h2>
+            <a class="btn-spring" href="https://pelita.vercel.app" target="_blank">Mulai Sekarang →</a>
+            <div style="margin-top: 30px; width: 100%;">
+                <div class="img-section footer-img">
+                    <img src="page3.png" alt="Footer PELITA" />
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ===== CHATBOT AI PELITA (Struktur Sama) ===== -->
+    <button id="ai-chat-btn"
+            style="position:fixed; bottom:20px; right:20px; z-index:999999; width:60px; height:60px; border-radius:50%; background:#2E8B57; border:4px solid white; font-size:28px; color:white; cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; transition:0.2s;"
+            onclick="toggleChat()"
+            onmouseover="this.style.transform='scale(1.1)'"
+            onmouseout="this.style.transform='scale(1)'">
+        🕯️
+    </button>
+
+    <div id="ai-chat-window"
+         style="position:fixed; bottom:90px; right:20px; z-index:999998; width:340px; max-width:90vw; height:420px; background:#fff; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.3); display:none; flex-direction:column; overflow:hidden; border:1px solid #ddd;"
+         role="dialog"
+         aria-label="Jendela chat asisten PELITA">
+        <div id="ai-chat-header" style="background:#2E8B57; color:white; padding:14px 16px; font-weight:bold; display:flex; justify-content:space-between; align-items:center;">
+            <span>🕯️ Asisten PELITA</span>
+            <button onclick="toggleChat()" style="background:transparent; border:none; color:white; font-size:20px; cursor:pointer;">✕</button>
+        </div>
+        <div id="ai-chat-messages" style="flex:1; padding:12px; overflow-y:auto; background:#f9f9f9; display:flex; flex-direction:column; gap:8px;">
+            <div class="msg-bot" style="align-self:flex-start; background:#eee; padding:10px 14px; border-radius:16px 16px 16px 0; max-width:85%; font-size:14px; color:#333; line-height:1.5;">
+                Halo Kapten! Saya Asisten PELITA. Tanya saya tentang kesehatan, obat, TBC, atau cara menjaga gizi ya!
+            </div>
+        </div>
+        <div id="ai-chat-input-area" style="padding:10px; border-top:1px solid #ddd; display:flex; gap:8px; background:#fff;">
+            <input type="text" id="ai-chat-input" placeholder="Tulis pertanyaan..." style="flex:1; padding:10px; border:1px solid #ddd; border-radius:30px; outline:none;" onkeypress="if(event.key==='Enter') sendChatGemini()">
+            <button id="ai-chat-send" onclick="sendChatGemini()" style="background:#2E8B57; color:white; border:none; padding:8px 18px; border-radius:30px; cursor:pointer; font-weight:bold;">Kirim</button>
+        </div>
+    </div>
+
+    <script src="knowledge.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
