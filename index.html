@@ -1,216 +1,231 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>PELITA – Game Edukasi Literasi Kesehatan Nusantara</title>
-
-    <!-- SEO META (Tetap Sama) -->
-    <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web yang mengajak remaja memahami 12 indikator literasi kesehatan WHO melalui budaya wayang Nakula dan Sadewa." />
-    <meta name="keywords" content="PELITA, game edukasi, literasi kesehatan, 12 indikator WHO, Nakula, Sadewa, kesehatan remaja" />
-    <meta name="author" content="Fauzan" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://pelita.vercel.app/" />
-    
-    <!-- Favicon & OG Image (Tetap Sama) -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <meta property="og:title" content="PELITA – Game Edukasi Literasi Kesehatan Nusantara" />
-    <meta property="og:image" content="https://fzzn8273.github.io/pelita/og-image.png" />
-    <meta property="og:url" content="https://pelita.vercel.app/" />
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PELITA – Game Edukasi Literasi Kesehatan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --hijau-medis: #2E8B57;
-            --krem-hangat: #FFF8DC;
-            --emas-wayang: #D4AF37;
-            --putih-bersih: #FFFFFF;
-            --coklat-ukiran: #5C4033;
-            --merah-warni: #FF6B6B;
-            --biru-warni: #4ECDC4;
-            --ungu-warni: #9B59B6;
+            --hijau: #2E8B57;
+            --krem: #FFF8DC;
+            --emas: #D4AF37;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; background: var(--hijau); overflow-x: hidden; }
 
-        body {
-            font-family: 'Nunito', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-            padding: 16px;
-            background: var(--hijau-medis);
-            background-image: radial-gradient(circle at 90% 10%, var(--krem-hangat) 0%, transparent 30%);
+        /* ===== NAVIGASI (FIX Z-INDEX & POSISI) ===== */
+        .floating-header {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999; /* PENTING: Supaya tidak ketutupan gambar */
         }
-
-        .container-website { width: 100%; max-width: 900px; padding: 20px; display: flex; flex-direction: column; }
-
-        /* ===== PRINSIP 8: ESTETIKA & MINIMALIS ===== */
-        .floating-header { position: fixed; top: 20px; right: 20px; z-index: 999; }
         .hamburger {
-            background: var(--putih-bersih); border-radius: 50%; width: 48px; height: 48px;
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-            color: var(--coklat-ukiran); font-size: 1.4rem;
-            /* PRINSIP 7 & 8: Efisiensi & Estetika dengan Transisi Halus */
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
-            border: 3px solid transparent;
-        }
-        .hamburger:hover { 
-            transform: scale(1.1); 
-            /* "Jalan" Border Menyala Warna-Warni */
-            border-image: linear-gradient(45deg, var(--merah-warni), var(--emas-wayang), var(--biru-warni), var(--ungu-warni)) 1;
-            border-style: solid;
-            animation: flowBorder 3s linear infinite;
-        }
-
-        @keyframes flowBorder {
-            0% { border-image-source: linear-gradient(45deg, var(--merah-warni), var(--emas-wayang), var(--biru-warni), var(--ungu-warni)); }
-            100% { border-image-source: linear-gradient(225deg, var(--merah-warni), var(--emas-wayang), var(--biru-warni), var(--ungu-warni)); }
-        }
-
-        .nav-dropdown {
-            position: absolute; top: 58px; right: 0;
-            background: var(--putih-bersih); border-radius: 14px; padding: 10px 0; min-width: 160px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15); opacity: 0; visibility: hidden;
-            transform: translateY(-8px); transition: all 0.3s ease;
-            border: 2px solid var(--emas-wayang);
-        }
-        .nav-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
-
-        /* PRINSIP 4: KONSISTENSI & STANDAR */
-        .nav-dropdown button {
-            display: block; width: 100%; background: transparent; border: none;
-            padding: 12px 20px; font-family: inherit; font-weight: 700; font-size: 0.9rem;
-            cursor: pointer; text-align: left; color: var(--coklat-ukiran);
-            transition: background 0.2s, transform 0.2s;
-        }
-        .nav-dropdown button:hover { background: var(--krem-hangat); transform: translateX(5px); }
-
-        /* PRINSIP 1: VISIBILITAS STATUS SISTEM (Highlight Halaman Aktif) */
-        .nav-dropdown button.active {
-            background: var(--hijau-medis);
-            color: var(--putih-bersih);
-            border-left: 4px solid var(--emas-wayang);
-        }
-
-        /* PRINSIP 6: RECOGNITION NOT RECALL (Ikon Jelas) */
-        .nav-dropdown button i { margin-right: 12px; width: 20px; }
-
-        /* PRINSIP 7: FLEKSIBILITAS & EFISIENSI (Link Game Langsung) */
-        .btn-spring {
-            display: inline-block; margin-top: 20px; background: var(--emas-wayang);
-            color: var(--coklat-ukiran); padding: 12px 32px; border-radius: 40px;
-            text-decoration: none; font-weight: 800; font-size: 1.1rem; 
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 50px; height: 50px;
+            background: #fff;
+            border: 2px solid var(--emas);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--hijau);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        .btn-spring:hover { transform: scale(1.05); box-shadow: 0 6px 20px var(--emas-wayang); }
+        .nav-dropdown {
+            position: absolute;
+            top: 60px; right: 0;
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            width: 180px;
+            display: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .nav-dropdown.open { display: block; }
+        .nav-dropdown button, .nav-dropdown a {
+            display: block; width: 100%;
+            padding: 10px;
+            background: none; border: none;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        .nav-dropdown button:hover, .nav-dropdown a:hover { background: #f0f0f0; }
 
-        /* Layout & Gambar */
-        .home-wrapper { display: flex; flex-direction: column; gap: 3vh; }
-        .img-section { width: 100%; border-radius: 24px; overflow: hidden; line-height: 0; background: var(--putih-bersih); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        /* ===== LAYOUT & GAMBAR ===== */
+        .container-website { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .img-section { width: 100%; border-radius: 20px; overflow: hidden; background: #fff; margin-bottom: 20px; }
         .img-section img { width: 100%; height: auto; display: block; }
-        .header-img { border: 2px solid var(--emas-wayang); }
-        .body-img   { border: 2px solid var(--hijau-medis); }
-        .footer-img { border: 2px solid var(--coklat-ukiran); background: var(--coklat-ukiran); }
-        .profile-neon-border { border-radius: 24px; border: 2px solid var(--emas-wayang); box-shadow: 0 0 15px var(--emas-wayang); }
-        .divider-section { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 2.5vh; margin: 4vh 0; }
-        .dashed-line { width: 70%; border-top: 2px dashed var(--emas-wayang); opacity: 0.5; }
-        .dashed-line.small { width: 50%; }
-        .dashed-line.large { width: 85%; }
-        .halaman { display: none; padding: 20px 0; text-align: center; }
+        .seo-intro { text-align: center; background: var(--krem); padding: 20px; border-radius: 20px; margin-bottom: 20px; color: #333; }
+        .halaman { display: none; }
         .halaman.active { display: block; }
-        .hero-other h2 { color: var(--putih-bersih); margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
-        .seo-intro { text-align: center; padding: 20px; background: rgba(255, 248, 220, 0.9); border-radius: 20px; margin: 20px 0; color: var(--coklat-ukiran); font-size: 18px; line-height: 1.8; }
-        .seo-intro h1 { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
-        .seo-intro p { max-width: 800px; margin: 0 auto; }
+        /* ===== AI CHAT (FIX POINTER & Z-INDEX) ===== */
+        #ai-chat-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            z-index: 9999; /* Pastikan di atas semua */
+            width: 60px; height: 60px;
+            background: var(--emas);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        #ai-chat-window {
+            position: fixed; bottom: 90px; right: 20px;
+            z-index: 9999;
+            width: 350px; max-width: 90vw;
+            height: 450px;
+            background: #fff;
+            border-radius: 15px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
+        #ai-chat-header button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
+        #ai-chat-messages { flex: 1; padding: 10px; overflow-y: auto; background: #f9f9f9; }
+        #ai-chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 5px; }
+        #ai-chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; }
 
-        /* Responsive (PRINSIP 7: Efisiensi) */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
             .container-website { padding: 10px; }
             .floating-header { top: 10px; right: 10px; }
-            .hamburger { width: 44px; height: 44px; }
-            .seo-intro h1 { font-size: 22px; }
+            #ai-chat-btn { bottom: 15px; right: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="floating-header" role="navigation" aria-label="Menu Utama">
-        <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu" title="Menu Navigasi"><i class="fas fa-bars"></i></button>
-        <nav class="nav-dropdown" id="navDropdown" aria-label="Navigasi">
-            <!-- PRINSIP 3: USER CONTROL & FREEDOM (Tombol Bisa Dipencet & Berpindah Halaman) -->
-            <button data-target="home" class="nav-item"><i class="fas fa-home"></i> Home</button>
-            <button data-target="profile" class="nav-item"><i class="fas fa-user"></i> Profile</button>
-            <button data-target="howtoplay" class="nav-item"><i class="fas fa-gamepad"></i> Cara main</button>
-            <a href="https://pelita-game.vercel.app" target="_blank" style="text-decoration:none; display:block; padding: 12px 20px; font-weight:800; color: var(--emas-wayang); transition: 0.2s;">🚀 Mulai Game</a>
+    <!-- NAVIGASI (DI LUAR CONTAINER BIAR GA KETUTUPAN) -->
+    <header class="floating-header">
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+        <nav class="nav-dropdown" id="navDropdown">
+            <button data-target="home">🏠 Home</button>
+            <button data-target="profile">👤 Profile</button>
+            <button data-target="howtoplay">🎮 Cara Main</button>
+            <a href="https://pelita.vercel.app" target="_blank">🚀 Mulai Game</a>
         </nav>
     </header>
 
+    <!-- KONTEN -->
     <main class="container-website">
-        <div id="home" class="home-wrapper">
+        <div id="home" class="halaman active">
             <div class="seo-intro">
                 <h1>PELITA – Penerang Literasi Kesehatan</h1>
-                <p>PELITA mengemas <strong>12 indikator WHO</strong> ke dalam petualangan wayang Nakula dan Sadewa.</p>
+                <p>Game edukasi 12 indikator kesehatan WHO untuk remaja Indonesia.</p>
             </div>
-            <div class="img-section header-img"><img src="page1.png" alt="Header PELITA" /></div>
-            <div class="divider-section">
-                <div class="dashed-line large"></div><div class="dashed-line"></div>
-            </div>
-            <div class="img-section body-img"><img src="page2.png" alt="Body PELITA" /></div>
-            <div class="divider-section">
-                <div class="dashed-line"></div><div class="dashed-line large"></div>
-            </div>
-            <div class="img-section footer-img"><img src="page3.png" alt="Footer PELITA" /></div>
+            <div class="img-section"><img src="page1.png" alt="Header"></div>
+            <div class="img-section"><img src="page2.png" alt="Body"></div>
+            <div class="img-section"><img src="page3.png" alt="Footer"></div>
         </div>
 
-        <div id="profile" class="halaman">
-            <div style="width: 100%; display: flex; flex-direction: column; gap: 4vh;">
-                <div class="img-section profile-neon-border"><img src="profile1.png" alt="Profil Fauzan" /></div>
-                <div class="img-section profile-neon-border"><img src="profile2.png" alt="Profil Roadmap" /></div>
-                <div class="img-section profile-neon-border"><img src="profile3.png" alt="Profil Pembimbing" /></div>
-            </div>
+        <div id="profile" class="halaman" style="padding-top: 60px;">
+            <div class="img-section"><img src="profile1.png" alt="Profil"></div>
+            <div class="img-section"><img src="profile2.png" alt="Profil"></div>
         </div>
-        
-        <div id="howtoplay" class="halaman hero-other">
-            <h2>Cara Main PELITA</h2>
-            <a class="btn-spring" href="https://pelita.vercel.app" target="_blank">Mulai Sekarang →</a>
-            <div style="margin-top: 30px; width: 100%;">
-                <div class="img-section footer-img"><img src="page3.png" alt="Footer PELITA" /></div>
-            </div>
+
+        <div id="howtoplay" class="halaman" style="padding-top: 60px;">
+            <h2>Cara Main</h2>
+            <p>Baca cerita, pilih A/B/C, dapat bintang. Bintang tidak berkurang jika salah.</p>
         </div>
     </main>
 
-    <!-- Chat AI (Dengan Error Prevention & Help) -->
-    <button id="ai-chat-btn" style="position:fixed; bottom:20px; right:20px; z-index:999999; width:60px; height:60px; border-radius:50%; background:#2E8B57; border:4px solid white; font-size:28px; color:white; cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,0.5);" onclick="toggleChat()" aria-label="Buka asisten PELITA">🕯️</button>
-
-    <div id="ai-chat-window" style="position:fixed; bottom:90px; right:20px; z-index:999998; width:340px; max-width:90vw; height:420px; background:#fff; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.3); display:none; flex-direction:column; overflow:hidden;">
-        <div id="ai-chat-header" style="background:#2E8B57; color:white; padding:14px 16px; font-weight:bold; display:flex; justify-content:space-between; align-items:center;">
+    <!-- AI CHAT -->
+    <button id="ai-chat-btn">🕯️</button>
+    <div id="ai-chat-window">
+        <div id="ai-chat-header">
             <span>🕯️ Asisten PELITA</span>
-            <button onclick="toggleChat()" style="background:transparent; border:none; color:white; font-size:20px; cursor:pointer;" aria-label="Tutup chat">✕</button>
+            <button onclick="toggleChat()">✕</button>
         </div>
-        <div id="ai-chat-messages" style="flex:1; padding:12px; overflow-y:auto; background:#f9f9f9; display:flex; flex-direction:column; gap:8px;">
-            <div class="msg-bot" style="align-self:flex-start; background:#eee; padding:10px 14px; border-radius:16px 16px 16px 0; max-width:85%; font-size:14px; color:#333;">
-                Halo! Saya Asisten PELITA. Tanya soal obat, gizi, TBC, atau vaksin. (Ketik "help" untuk bantuan).
-            </div>
+        <div id="ai-chat-messages">
+            <div style="padding:10px; background:#eee; border-radius:10px; margin-bottom:10px;">Halo! Tanya soal Bu Okta, Fauzan, atau @mfznndii_0605!</div>
         </div>
-        <div id="ai-chat-input-area" style="padding:10px; border-top:1px solid #ddd; display:flex; gap:8px; background:#fff;">
-            <input type="text" id="ai-chat-input" placeholder="Tulis pertanyaan..." style="flex:1; padding:10px; border:1px solid #ddd; border-radius:30px; outline:none;" onkeypress="if(event.key==='Enter') sendChatGemini()">
-            <button id="ai-chat-send" onclick="sendChatGemini()" style="background:#2E8B57; color:white; border:none; padding:8px 18px; border-radius:30px; cursor:pointer; font-weight:bold;">Kirim</button>
+        <div id="ai-chat-input-area">
+            <input type="text" id="ai-chat-input" placeholder="Tulis pertanyaan..." onkeypress="if(event.key==='Enter') sendChatGemini()">
+            <button id="ai-chat-send" onclick="sendChatGemini()">Kirim</button>
         </div>
     </div>
 
-    <script src="knowledge.js"></script>
-    <script src="script.js"></script>
+    <!-- SCRIPT DI PALING BAWAH (INI YANG BIKIN TOMBOL GA BISA DIKLIK TADINYA) -->
+    <script src="knowledge.json"></script> <!-- BUKAN JS, TAPI JSON! JANGAN DIPAKE -->
+    <script>
+        // ===== 1. LOGIKA NAVIGASI =====
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navDropdown = document.getElementById('navDropdown');
+        hamburgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && e.target !== hamburgerBtn) {
+                navDropdown.classList.remove('open');
+            }
+        });
+        document.querySelectorAll('.nav-dropdown button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                document.querySelectorAll('.halaman').forEach(h => h.classList.remove('active'));
+                document.getElementById(target).classList.add('active');
+                navDropdown.classList.remove('open');
+            });
+        });
+
+        // ===== 2. LOGIKA AI CHAT (LOAD JSON) =====
+        const messages = document.getElementById('ai-chat-messages');
+        
+        // Fetch data JSON (Karena knowledge.json bukan JS)
+        fetch('knowledge.json')
+            .then(res => res.json())
+            .then(data => {
+                window.allKnowledge = data; // Simpan di global
+            })
+            .catch(err => console.log("Gagal load JSON:", err));
+
+        window.toggleChat = function() {
+            const win = document.getElementById('ai-chat-window');
+            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+        };
+
+        window.sendChatGemini = function() {
+            const input = document.getElementById('ai-chat-input').value.trim();
+            if (!input) return;
+
+            // Tampilkan pesan user
+            messages.innerHTML += `<div style="text-align:right; background:#2E8B57; color:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">${input}</div>`;
+            document.getElementById('ai-chat-input').value = '';
+
+            // Cari di knowledge.json
+            let found = false;
+            let reply = "Maaf, saya belum paham. Coba tanya soal Bu Okta atau Fauzan ya!";
+            
+            // Cek setiap topik
+            if (window.allKnowledge) {
+                for (let topic of window.allKnowledge) {
+                    for (let kw of topic.keywords) {
+                        if (input.toLowerCase().includes(kw.toLowerCase())) {
+                            // Ambil balasan secara acak
+                            const replies = topic.replies;
+                            reply = replies[Math.floor(Math.random() * replies.length)];
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found) break;
+                }
+            }
+
+            messages.innerHTML += `<div style="text-align:left; background:#eee; padding:10px; border-radius:10px; margin-bottom:10px;">${reply}</div>`;
+            messages.scrollTop = messages.scrollHeight;
+        };
+    </script>
 </body>
 </html>
