@@ -4,42 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="JBBlfe5CvQKoZZo7eZkH7J_iUpLR6q13f9kTqQYnEWY" />
-    
-    <!-- TAG SITEMAP -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-    <title>PELITA – Game Edukasi Literasi Kesehatan Nusantara</title>
-    <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web yang dirancang untuk meningkatkan literasi kesehatan remaja Indonesia melalui 12 indikator WHO, budaya wayang Nakula dan Sadewa. Game ini dikembangkan oleh Fauzan untuk LKIP SMA Taruna Nusantara." />
+    <!-- ===== TITLE ===== -->
+    <title>PELITA – Penerang Literasi Kesehatan Nusantara</title>
+
+    <!-- ===== SEO META ===== -->
+    <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web untuk meningkatkan literasi kesehatan remaja melalui 12 indikator WHO dan budaya wayang Nakula dan Sadewa." />
     <meta name="keywords" content="PELITA, game edukasi, literasi kesehatan, 12 indikator WHO, Nakula, Sadewa, Fauzan, LKIP, kesehatan remaja, TBC, gizi, vaksinasi, P3K, hoaks kesehatan" />
     <meta name="author" content="Fauzan" />
     <meta name="robots" content="index, follow" />
 
-    <!-- FAVICON WAJIB (File di root) -->
+    <!-- ===== FAVICON (PASTIKAN FILE ADA DI ROOT FOLDER) ===== -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
 
-    <!-- OPEN GRAPH & PREVIEW IMAGES (WAJIB ADA og-image.png & og-preview.png) -->
+    <!-- ===== OPEN GRAPH (GANTI KE DOMAIN VERCEL) ===== -->
     <meta property="og:title" content="PELITA – Penerang Literasi Kesehatan Nusantara" />
     <meta property="og:description" content="Game edukasi 12 indikator kesehatan WHO untuk remaja. Dikembangkan oleh Fauzan untuk LKIP SMA Taruna Nusantara." />
-    <meta property="og:image" content="https://fzzn8273.github.io/pelita/og-image.png" />
-    <meta property="og:image:secure_url" content="https://fzzn8273.github.io/pelita/og-image.png" />
+    <meta property="og:image" content="https://pelita2026.vercel.app/og-image.png" />
+    <meta property="og:image:secure_url" content="https://pelita2026.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Preview PELITA" />
-    
-    <!-- OG PREVIEW (Khusus untuk beberapa bot) -->
-    <meta property="og:image" content="https://fzzn8273.github.io/pelita/og-preview.png" />
-    <meta property="og:image:secure_url" content="https://fzzn8273.github.io/pelita/og-preview.png" />
-
-    <meta property="og:url" content="https://pelita-game.vercel.app/" />
+    <meta property="og:url" content="https://pelita2026.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="PELITA" />
     <meta property="og:locale" content="id_ID" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://fzzn8273.github.io/pelita/og-image.png" />
+    <meta name="twitter:image" content="https://pelita2026.vercel.app/og-image.png" />
 
     <!-- ===== STRATEGI GEO: FAQ SCHEMA (AI Overview) ===== -->
     <script type="application/ld+json">
@@ -78,6 +72,7 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Nunito', sans-serif; background: var(--hijau); overflow-x: hidden; }
+
         .floating-header { position: fixed; top: 20px; right: 20px; z-index: 9999; }
         .hamburger { width: 50px; height: 50px; background: #fff; border: 2px solid var(--emas); border-radius: 50%; cursor: pointer; font-size: 1.5rem; color: var(--hijau); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .nav-dropdown { position: absolute; top: 60px; right: 0; background: #fff; border-radius: 10px; padding: 10px; width: 180px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -91,7 +86,6 @@
         .halaman { display: none; }
         .halaman.active { display: block; }
 
-        /* LOGO AI WAJIB BISA DI KLIK (Fix Z-Index & Pointer) */
         #ai-chat-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: var(--emas); border: 4px solid #fff; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
         #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 350px; max-width: 90vw; height: 450px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
         #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
@@ -110,31 +104,35 @@
 </head>
 <body>
 
+    <!-- NAVIGASI -->
     <header class="floating-header">
         <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
         <nav class="nav-dropdown" id="navDropdown">
             <button data-target="home">🏠 Home</button>
             <button data-target="profile">👤 Profile</button>
             <button data-target="howtoplay">🎮 Cara Main</button>
-            <a href="https://pelita-game.vercel.app/" target="_blank">🚀 Mulai Game</a>
+            <a href="https://pelita2026.vercel.app/" target="_blank">🚀 Mulai Game</a>
         </nav>
     </header>
 
+    <!-- KONTEN UTAMA -->
     <main class="container-website">
         <div id="home" class="halaman active">
             <div class="seo-intro">
                 <h1>PELITA – Penerang Literasi Kesehatan</h1>
                 <p>Game edukasi 12 indikator kesehatan WHO untuk remaja Indonesia.</p>
             </div>
-            <div class="img-section"><img src="page1.png" alt="Header"></div>
-            <div class="img-section"><img src="page2.png" alt="Body"></div>
-            <div class="img-section"><img src="page3.png" alt="Footer"></div>
+            
+            <!-- ASET GAMBAR (SESUAI NAMA FILE DI GITHUB) -->
+            <div class="img-section"><img src="page1.png" alt="Header PELITA"></div>
+            <div class="img-section"><img src="page2.png" alt="Body PELITA"></div>
+            <div class="img-section"><img src="page3.png" alt="Footer PELITA"></div>
         </div>
 
         <div id="profile" class="halaman" style="padding-top: 60px;">
-            <div class="img-section"><img src="profile1.png" alt="Profil"></div>
-            <div class="img-section"><img src="profile2.png" alt="Profil"></div>
-            <div class="img-section"><img src="profile3.png" alt="Profil"></div>
+            <div class="img-section"><img src="profile1.png" alt="Profil Fauzan"></div>
+            <div class="img-section"><img src="profile2.png" alt="Profil Roadmap"></div>
+            <div class="img-section"><img src="profile3.png" alt="Profil Ucapan"></div>
         </div>
 
         <div id="howtoplay" class="halaman" style="padding-top: 60px;">
@@ -143,12 +141,12 @@
         </div>
     </main>
 
-    <!-- LOGO AI -->
-    <button id="ai-chat-btn" aria-label="Buka Asisten AI">🕯️</button>
+    <!-- AI CHAT -->
+    <button id="ai-chat-btn">🕯️</button>
     <div id="ai-chat-window">
         <div id="ai-chat-header">
             <span>🕯️ Asisten PELITA</span>
-            <button id="btn-close-chat" aria-label="Tutup">✕</button>
+            <button id="btn-close-chat">✕</button>
         </div>
         <div id="ai-chat-messages">
             <div style="padding:10px; background:#eee; border-radius:10px; margin-bottom:10px;">Halo! Tanya soal Bu Okta, Fauzan, atau @mfznndii_0605!</div>
@@ -159,8 +157,9 @@
         </div>
     </div>
 
+    <!-- JAVASCRIPT -->
     <script>
-        // NAVIGASI FIX
+        // ===== NAVIGASI FIX =====
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const navDropdown = document.getElementById('navDropdown');
         hamburgerBtn.addEventListener('click', (e) => {
@@ -179,14 +178,11 @@
             });
         });
 
-        // LOAD KNOWLEDGE.JSON
+        // ===== LOGIKA AI CHAT =====
         const messages = document.getElementById('ai-chat-messages');
-        fetch('knowledge.json').then(res => res.json()).then(data => { window.allKnowledge = data; }).catch(err => console.log("Gagal load JSON:", err));
-
-        // FIX LOGO AI BISA DI KLIK (Dengan addEventListener)
         const btnCloseChat = document.getElementById('btn-close-chat');
         const btnChat = document.getElementById('ai-chat-btn');
-        
+
         window.toggleChat = function() {
             const win = document.getElementById('ai-chat-window');
             win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
@@ -198,8 +194,10 @@
         window.sendChatGemini = function() {
             const input = document.getElementById('ai-chat-input').value.trim();
             if (!input) return;
+
             messages.innerHTML += `<div style="text-align:right; background:#2E8B57; color:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">${input}</div>`;
             document.getElementById('ai-chat-input').value = '';
+
             let reply = "Maaf, saya belum paham. Coba tanya soal Bu Okta atau Fauzan ya!";
             if (window.allKnowledge) {
                 for (let topic of window.allKnowledge) {
@@ -212,6 +210,7 @@
                     }
                 }
             }
+
             messages.innerHTML += `<div style="text-align:left; background:#eee; padding:10px; border-radius:10px; margin-bottom:10px;">${reply}</div>`;
             messages.scrollTop = messages.scrollHeight;
         };
