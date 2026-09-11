@@ -1,6 +1,7 @@
 import docx
 import json
 import os
+import re
 
 INPUT_DOCX = os.path.join("data", "jawaban.docx")
 OUTPUT_JSON = "knowledge.json"
@@ -27,14 +28,13 @@ for para in doc.paragraphs:
                 "replies": current_replies
             })
         
-        # Parse keyword baru
+        # Parse keyword baru + FILTER
         keywords_str = text.replace("##", "").strip()
-        # Split by comma, lowercase, skip keyword > 40 karakter (kalimat panjang)
         current_keywords = []
         for k in keywords_str.split(","):
             kw = k.strip().lower()
             # FILTER: hanya keyword 3-40 karakter, bukan kalimat panjang
-            if 3 <= len(kw) <= 40:
+            if 3 <= len(kw) <= 40 and not kw.endswith('.') and not kw.endswith('!'):
                 current_keywords.append(kw)
         current_replies = []
     else:
@@ -48,7 +48,7 @@ if current_keywords:
         "replies": current_replies
     })
 
-# FILTER: buang topik yang replies-nya kosong atau keywords kosong
+# FILTER: buang topik tanpa reply atau tanpa keyword
 knowledge = [t for t in knowledge if t["keywords"] and t["replies"]]
 
 with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
@@ -63,4 +63,4 @@ print(f"   📊 Total topik valid : {len(knowledge)}")
 print(f"   🔑 Total keywords    : {total_keywords}")
 print(f"   💬 Total jawaban     : {total_replies}")
 print(f"   💾 Ukuran JSON       : {file_size:.2f} KB")
-print(f"   ⚠️  Topik tanpa reply DIBUANG otomatis.")
+print(f"   ⚠️  Filter: keyword 3-40 char, reply tidak kosong.")
