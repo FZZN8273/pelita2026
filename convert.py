@@ -20,23 +20,36 @@ for para in doc.paragraphs:
     total_paragraphs += 1
     
     if text.startswith("##"):
+        # Simpan topik sebelumnya
         if current_keywords:
             knowledge.append({
                 "keywords": current_keywords,
                 "replies": current_replies
             })
+        
+        # Parse keyword baru
         keywords_str = text.replace("##", "").strip()
-        current_keywords = [k.strip().lower() for k in keywords_str.split(",") if k.strip()]
+        # Split by comma, lowercase, skip keyword > 40 karakter (kalimat panjang)
+        current_keywords = []
+        for k in keywords_str.split(","):
+            kw = k.strip().lower()
+            # FILTER: hanya keyword 3-40 karakter, bukan kalimat panjang
+            if 3 <= len(kw) <= 40:
+                current_keywords.append(kw)
         current_replies = []
     else:
         if current_keywords:
             current_replies.append(text)
 
+# Simpan topik terakhir
 if current_keywords:
     knowledge.append({
         "keywords": current_keywords,
         "replies": current_replies
     })
+
+# FILTER: buang topik yang replies-nya kosong atau keywords kosong
+knowledge = [t for t in knowledge if t["keywords"] and t["replies"]]
 
 with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
     json.dump(knowledge, f, indent=2, ensure_ascii=False)
@@ -46,7 +59,8 @@ total_replies = sum(len(item["replies"]) for item in knowledge)
 file_size = os.path.getsize(OUTPUT_JSON) / 1024
 
 print(f"✅ Berhasil!")
-print(f"   📊 Total topik    : {len(knowledge)}")
-print(f"   🔑 Total keywords : {total_keywords}")
-print(f"   💬 Total jawaban  : {total_replies}")
-print(f"   💾 Ukuran JSON    : {file_size:.2f} KB")
+print(f"   📊 Total topik valid : {len(knowledge)}")
+print(f"   🔑 Total keywords    : {total_keywords}")
+print(f"   💬 Total jawaban     : {total_replies}")
+print(f"   💾 Ukuran JSON       : {file_size:.2f} KB")
+print(f"   ⚠️  Topik tanpa reply DIBUANG otomatis.")
