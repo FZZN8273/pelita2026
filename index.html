@@ -4,94 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="JBBlfe5CvQKoZZo7eZkH7J_iUpLR6q13f9kTqQYnEWY" />
-
     <title>PELITA – Penerang Literasi Kesehatan Nusantara</title>
-
-    <!-- SEO META -->
     <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web untuk meningkatkan literasi kesehatan remaja melalui 12 indikator WHO dan budaya wayang Nakula dan Sadewa." />
-    <meta name="keywords" content="PELITA, game edukasi, literasi kesehatan, 12 indikator WHO, Nakula, Sadewa, Fauzan, LKIP, kesehatan remaja, TBC, gizi, vaksinasi, P3K, hoaks kesehatan" />
+    <meta name="keywords" content="PELITA, game edukasi, literasi kesehatan, 12 indikator WHO, Nakula, Sadewa, Fauzan, LKIP" />
     <meta name="author" content="Fauzan" />
     <meta name="robots" content="index, follow" />
-
-    <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-
-    <!-- OPEN GRAPH -->
     <meta property="og:title" content="PELITA – Penerang Literasi Kesehatan Nusantara" />
-    <meta property="og:description" content="Game edukasi 12 indikator kesehatan WHO untuk remaja. Dikembangkan oleh Fauzan untuk LKIP SMA Taruna Nusantara." />
+    <meta property="og:description" content="Game edukasi 12 indikator kesehatan WHO untuk remaja." />
     <meta property="og:image" content="https://pelita2026.vercel.app/og-image.png" />
-    <meta property="og:image:secure_url" content="https://pelita2026.vercel.app/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
     <meta property="og:url" content="https://pelita2026.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="PELITA" />
-    <meta property="og:locale" content="id_ID" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://pelita2026.vercel.app/og-image.png" />
-
-    <!-- STRUCTURED DATA (FAQ Schema untuk AI Overview) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Apa itu PELITA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "PELITA (Penerang Literasi Kesehatan) adalah game edukasi interaktif berbasis web yang mengajarkan 12 indikator literasi kesehatan WHO kepada remaja Indonesia melalui budaya wayang Nakula dan Sadewa."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Siapa pembuat PELITA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "PELITA dikembangkan oleh Fauzan untuk LKIP SMA Taruna Nusantara, dibimbing oleh Ibu Okta."
-          }
-        }
-      ]
-    }
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Apa itu PELITA?","acceptedAnswer":{"@type":"Answer","text":"PELITA adalah game edukasi interaktif berbasis web yang mengajarkan 12 indikator literasi kesehatan WHO kepada remaja Indonesia."}}]}
     </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
-        :root {
-            --hijau: #2E8B57;
-            --krem: #FFF8DC;
-            --emas: #D4AF37;
-        }
+        :root { --hijau: #2E8B57; --krem: #FFF8DC; --emas: #D4AF37; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Nunito', sans-serif; background: var(--hijau); overflow-x: hidden; }
-
-        /* ===== NAVIGASI ===== */
         .floating-header { position: fixed; top: 20px; right: 20px; z-index: 9999; }
         .hamburger { width: 50px; height: 50px; background: #fff; border: 2px solid var(--emas); border-radius: 50%; cursor: pointer; font-size: 1.5rem; color: var(--hijau); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .nav-dropdown { position: absolute; top: 60px; right: 0; background: #fff; border-radius: 10px; padding: 10px; width: 200px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .nav-dropdown.open { display: block; }
         .nav-dropdown button, .nav-dropdown a { display: block; width: 100%; padding: 10px; background: none; border: none; text-align: left; cursor: pointer; font-family: inherit; font-weight: 700; color: #333; text-decoration: none; border-radius: 6px; }
         .nav-dropdown button:hover, .nav-dropdown a:hover { background: #f0f0f0; }
-
-        /* ===== LAYOUT ===== */
         .container-website { max-width: 900px; margin: 0 auto; padding: 20px; }
         .img-section { width: 100%; border-radius: 20px; overflow: hidden; background: #fff; margin-bottom: 20px; }
         .img-section img { width: 100%; height: auto; display: block; }
         .seo-intro { text-align: center; background: var(--krem); padding: 20px; border-radius: 20px; margin-bottom: 20px; color: #333; }
         .halaman { display: none; }
         .halaman.active { display: block; }
-
-        /* ===== AI CHAT ===== */
         #ai-chat-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: var(--emas); border: 4px solid #fff; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); transition: transform 0.2s; }
         #ai-chat-btn:hover { transform: scale(1.1); }
-        #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 360px; max-width: 92vw; height: 520px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 380px; max-width: 92vw; height: 540px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
         #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
         #ai-chat-header button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
         #ai-chat-messages { flex: 1; padding: 12px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 6px; }
@@ -100,31 +50,24 @@
         #ai-chat-input:focus { border-color: var(--hijau); }
         #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
         #ai-chat-send:hover { background: #257045; }
-
-        /* ===== BUBBLE CHAT ===== */
         .msg-user { align-self: flex-end; background: #2E8B57; color: #fff; padding: 10px 14px; border-radius: 16px 16px 0 16px; max-width: 85%; margin-bottom: 4px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
         .msg-bot { align-self: flex-start; background: #fff; border: 1px solid #e0e0e0; padding: 10px 14px; border-radius: 16px 16px 16px 0; max-width: 85%; margin-bottom: 4px; font-size: 14px; line-height: 1.6; color: #333; word-wrap: break-word; }
-        .msg-bot ul { margin: 4px 0 4px 18px; }
-        .msg-bot li { margin-bottom: 2px; }
-        .msg-menu { align-self: flex-start; background: #FFF8DC; border: 2px solid #D4AF37; padding: 12px 14px; border-radius: 16px 16px 16px 0; max-width: 92%; margin-bottom: 4px; font-size: 13px; line-height: 1.6; color: #333; }
+        .msg-menu { align-self: flex-start; background: #FFF8DC; border: 2px solid #D4AF37; padding: 12px 14px; border-radius: 16px 16px 16px 0; max-width: 95%; margin-bottom: 4px; font-size: 13px; line-height: 1.6; color: #333; }
         .msg-menu b { color: #2E8B57; display: block; margin-bottom: 8px; font-size: 14px; }
         .msg-menu .topic-btn { display: inline-block; background: #fff; border: 1px solid #D4AF37; border-radius: 12px; padding: 4px 10px; margin: 3px 3px 0 0; font-size: 12px; cursor: pointer; color: #333; transition: 0.15s; }
         .msg-menu .topic-btn:hover { background: #D4AF37; color: #fff; }
-        .msg-loading { align-self: flex-start; color: #999; font-style: italic; font-size: 13px; padding: 6px 10px; }
-
         @media (max-width: 600px) {
             .container-website { padding: 10px; }
             .floating-header { top: 10px; right: 10px; }
             #ai-chat-btn { bottom: 15px; right: 15px; }
-            #ai-chat-window { bottom: 85px; right: 10px; height: 72vh; }
+            #ai-chat-window { bottom: 85px; right: 10px; height: 75vh; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== NAVIGASI ===== -->
     <header class="floating-header">
-        <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
         <nav class="nav-dropdown" id="navDropdown">
             <button data-target="home">🏠 Home</button>
             <button data-target="profile">👤 Profile</button>
@@ -133,7 +76,6 @@
         </nav>
     </header>
 
-    <!-- ===== KONTEN ===== -->
     <main class="container-website">
         <div id="home" class="halaman active">
             <div class="seo-intro">
@@ -144,13 +86,11 @@
             <div class="img-section"><img src="page2.png" alt="Body PELITA"></div>
             <div class="img-section"><img src="page3.png" alt="Footer PELITA"></div>
         </div>
-
         <div id="profile" class="halaman" style="padding-top: 60px;">
-            <div class="img-section"><img src="profile1.png" alt="Profil Fauzan"></div>
-            <div class="img-section"><img src="profile2.png" alt="Profil Roadmap"></div>
-            <div class="img-section"><img src="profile3.png" alt="Profil Ucapan"></div>
+            <div class="img-section"><img src="profile1.png" alt="Profil 1"></div>
+            <div class="img-section"><img src="profile2.png" alt="Profil 2"></div>
+            <div class="img-section"><img src="profile3.png" alt="Profil 3"></div>
         </div>
-
         <div id="howtoplay" class="halaman" style="padding-top: 60px; background: #fff; border-radius: 20px; padding: 30px;">
             <h2 style="color: #2E8B57; margin-bottom: 12px;">🎮 Cara Main PELITA</h2>
             <p style="margin-bottom: 10px;">1. Baca cerita di setiap babak.</p>
@@ -162,39 +102,29 @@
         </div>
     </main>
 
-    <!-- ===== AI CHAT ===== -->
-    <button id="ai-chat-btn" aria-label="Buka Asisten AI">🕯️</button>
+    <button id="ai-chat-btn">🕯️</button>
     <div id="ai-chat-window" role="dialog">
         <div id="ai-chat-header">
             <span>🕯️ Asisten PELITA</span>
-            <button id="btn-close-chat" aria-label="Tutup">✕</button>
+            <button id="btn-close-chat">✕</button>
         </div>
         <div id="ai-chat-messages">
-            <div class="msg-bot">Halo! 👋 Aku Asisten PELITA.<br>Ketik <b>.menu</b> buat liat semua topik, atau tanya langsung apa aja soal PELITA.</div>
+            <div class="msg-bot">Halo! 👋 Aku Asisten PELITA.<br><br>Ketik <b>.help</b> buat liat semua command, atau langsung tanya apa aja soal PELITA.</div>
         </div>
         <div id="ai-chat-input-area">
-            <input type="text" id="ai-chat-input" placeholder="Tulis pertanyaan atau .menu..." onkeypress="if(event.key==='Enter') sendChat()">
+            <input type="text" id="ai-chat-input" placeholder="Tulis pertanyaan atau .help..." onkeypress="if(event.key==='Enter') sendChat()">
             <button id="ai-chat-send" onclick="sendChat()">Kirim</button>
         </div>
     </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ============ NAVIGASI ============
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const navDropdown = document.getElementById('navDropdown');
-
-        hamburgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navDropdown.classList.toggle('open');
-        });
-
+        hamburgerBtn.addEventListener('click', (e) => { e.stopPropagation(); navDropdown.classList.toggle('open'); });
         document.addEventListener('click', (e) => {
-            if (!navDropdown.contains(e.target) && e.target !== hamburgerBtn) {
-                navDropdown.classList.remove('open');
-            }
+            if (!navDropdown.contains(e.target) && e.target !== hamburgerBtn) navDropdown.classList.remove('open');
         });
-
         document.querySelectorAll('.nav-dropdown button[data-target]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const target = this.getAttribute('data-target');
@@ -210,56 +140,71 @@
         const btnCloseChat = document.getElementById('btn-close-chat');
         const btnChat = document.getElementById('ai-chat-btn');
 
-        // Load knowledge.json + CACHE BUSTING
         fetch('knowledge.json?v=' + Date.now())
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}: File knowledge.json tidak ditemukan. Pastikan nama file benar.`);
-                return res.json();
-            })
+            .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
             .then(data => {
                 window.allKnowledge = data;
-                console.log(`✅ Loaded ${data.length} topik dari knowledge.json`);
-                // Cek topik tanpa reply
-                const broken = data.filter(t => !t.replies || t.replies.length === 0);
-                if (broken.length > 0) console.warn(`⚠️ ${broken.length} topik tanpa reply (akan di-skip)`);
+                console.log(`✅ Loaded ${data.length} topik`);
             })
-            .catch(err => {
-                console.error("❌ Gagal load knowledge.json:", err);
-                window.allKnowledge = [];
-            });
+            .catch(err => { console.error("❌ Gagal load:", err); window.allKnowledge = []; });
 
         window.toggleChat = function() {
             const win = document.getElementById('ai-chat-window');
             win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
         };
-
         btnChat.addEventListener('click', window.toggleChat);
         btnCloseChat.addEventListener('click', window.toggleChat);
 
-        // ============ MENU TOPIK ============
-        function tampilkanMenu() {
+        // ============ MENU FILTER ============
+        function tampilkanMenu(filterFn, judul) {
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return `<div class="msg-bot">⚠️ Knowledge base belum ke-load.<br>Cek Console (F12) buat detail error.</div>`;
+                return `<div class="msg-bot">⚠️ Knowledge base belum ke-load. Cek Console (F12).</div>`;
             }
             
-            const topics = window.allKnowledge.map(t => {
+            let list = window.allKnowledge;
+            if (filterFn) list = list.filter(filterFn);
+            
+            if (list.length === 0) {
+                return `<div class="msg-bot">📭 Tidak ada topik dengan kategori ini.</div>`;
+            }
+            
+            const topics = list.map(t => {
                 if (!t.replies || t.replies.length === 0) return null;
                 if (!t.keywords || t.keywords.length === 0) return null;
-                const candidates = t.keywords.filter(k => k.length >= 4 && k.length <= 25);
+                const candidates = t.keywords.filter(k => k.length >= 4 && k.length <= 28);
                 if (candidates.length === 0) return t.keywords[0];
                 return candidates.reduce((a, b) => a.length < b.length ? a : b);
             }).filter(x => x);
             
-            const unique = [...new Set(topics)].slice(0, 30);
+            const unique = [...new Set(topics)].slice(0, 40);
             
-            let html = `<div class="msg-menu"><b>📚 Topik yang tersedia (klik salah satu):</b>`;
+            let html = `<div class="msg-menu"><b>📚 ${judul} (${unique.length} topik, klik salah satu):</b>`;
             unique.forEach(t => {
                 const safe = String(t).replace(/'/g, "\\'").replace(/"/g, '&quot;');
                 html += `<span class="topic-btn" onclick="kirimCepat('${safe}')">${t}</span>`;
             });
-            html += `<br><br><i style="font-size:11px; color:#666;">💡 Ketik <b>.menu</b> kapan aja buat liat daftar ini.</i></div>`;
+            html += `</div>`;
             return html;
         }
+
+        // Command definitions
+        const COMMANDS = {
+            '.menu':    { filter: null,                        judul: '🗂️ Semua Topik' },
+            '.all':     { filter: null,                        judul: '🗂️ Semua Topik' },
+            '.topik':   { filter: null,                        judul: '🗂️ Semua Topik' },
+            '.fyi':     { filter: t => t.keywords.some(k => k.toLowerCase().startsWith('fyi')),  judul: '💡 Fakta Unik (FYI)' },
+            '.tips':    { filter: t => t.keywords.some(k => k.toLowerCase().startsWith('tips')), judul: '📌 Tips & Saran' },
+            '.curhat':  { filter: t => t.keywords.some(k => k.toLowerCase().startsWith('curhat')), judul: '💙 Curhat & Mental Health' },
+            '.trivia':  { filter: t => t.keywords.some(k => k.toLowerCase().includes('trivia')),  judul: '🎯 Trivia & Fakta' },
+            '.istilah': { filter: t => t.keywords.some(k => k.toLowerCase().includes('istilah') || k.toLowerCase().includes('glossary')), judul: '📖 Daftar Istilah' },
+            '.english': { filter: t => t.keywords.some(k => k.toLowerCase().includes('english') || k.toLowerCase().includes('english version')), judul: '🇬🇧 English Version' },
+            '.kesehatan': { filter: t => t.keywords.some(k => k.toLowerCase().includes('kesehatan') || k.toLowerCase().includes('data')), judul: '🩺 Kesehatan & Data' },
+            '.kisah':   { filter: t => t.keywords.some(k => k.toLowerCase().includes('lore') || k.toLowerCase().includes('backstory')), judul: '📖 Lore & Cerita' },
+            '.lkip':    { filter: t => t.keywords.some(k => k.toLowerCase().includes('lkip') || k.toLowerCase().includes('lomba')), judul: '🏆 LKIP & Lomba' },
+            '.robot':   { filter: t => t.keywords.some(k => k.toLowerCase().includes('ai') || k.toLowerCase().includes('chatbot')), judul: '🤖 Tentang Chatbot Ini' },
+            '.makanan': { filter: t => t.keywords.some(k => k.toLowerCase().includes('gizi') || k.toLowerCase().includes('makanan') || k.toLowerCase().includes('sarapan')), judul: '🍽️ Gizi & Makanan' },
+            '.tentang': { filter: t => t.keywords.some(k => k.toLowerCase().includes('pelita') || k.toLowerCase().includes('tentang')), judul: '🕯️ Tentang PELITA' }
+        };
 
         window.kirimCepat = function(text) {
             document.getElementById('ai-chat-input').value = text;
@@ -270,34 +215,36 @@
         function findBestReply(userInput) {
             const cmd = userInput.toLowerCase().trim();
 
-            // Command khusus
-            if (cmd === '.menu' || cmd === 'menu' || cmd === 'topik' || cmd === 'daftar') {
-                return { type: 'menu' };
+            // Command handler
+            if (COMMANDS[cmd]) {
+                const c = COMMANDS[cmd];
+                return { type: 'menu', filter: c.filter, judul: c.judul };
             }
             
-            if (cmd === 'help' || cmd === 'bantuan') {
-                return { type: 'text', reply: "Aku bisa bantu jawab soal PELITA: apa itu PELITA, siapa Fauzan, siapa Bu Okta, cara main, 12 indikator, dan masih banyak lagi.<br><br>Ketik <b>.menu</b> buat liat semua topik!" };
+            // Help
+            if (cmd === '.help' || cmd === 'help' || cmd === 'bantuan' || cmd === '.bantuan') {
+                return { type: 'help' };
             }
             
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load.<br><br>Kemungkinan penyebab:<br>1. Nama file bukan <b>knowledge.json</b> (cek di GitHub)<br>2. File JSON rusak<br>3. Cache browser<br><br>Coba hard refresh: <b>Ctrl + Shift + R</b>" };
+                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load.<br>Coba hard refresh: <b>Ctrl + Shift + R</b>" };
             }
 
             const input = cmd;
             
-            // 1. Sapaan dasar
+            // Sapaan
             const sapaan = ['halo', 'hai', 'hi', 'hey', 'assalam', 'pagi', 'siang', 'sore', 'malam'];
             if (sapaan.some(s => input === s || input.startsWith(s + ' ')) && input.length < 20) {
-                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA. Tanya apa aja soal PELITA, Fauzan, Bu Okta, atau kesehatan ya!<br><br>Ketik <b>.menu</b> buat liat topik." };
+                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA.<br><br>Ketik <b>.help</b> buat liat command, atau tanya apa aja." };
             }
             
-            // 2. Terima kasih
+            // Makasih
             if (input.includes('makasih') || input.includes('terima kasih') || 
                 input.includes('thanks') || input.includes('thx') || input === 'tq') {
                 return { type: 'text', reply: "Sama-sama! 😊 Senang bisa bantu." };
             }
 
-            // 3. Cari keyword terbaik (scoring 3 skenario)
+            // Matching
             let bestMatch = null;
             let bestScore = 0;
 
@@ -313,22 +260,17 @@
                     let matched = false;
                     let score = 0;
                     
-                    // A: input contains keyword (paling kuat)
                     if (input.includes(keyword)) {
                         matched = true;
                         score = keyword.length * 3;
-                    }
-                    // B: keyword contains input (user ngetik singkat)
-                    else if (keyword.includes(input) && input.length >= 4) {
+                    } else if (keyword.includes(input) && input.length >= 4) {
                         matched = true;
                         score = input.length * 2;
-                    }
-                    // C: multi-word partial match
-                    else {
-                        const inputWords = input.split(/\s+/).filter(w => w.length >= 3);
-                        const keywordWords = keyword.split(/\s+/).filter(w => w.length >= 3);
-                        const common = inputWords.filter(w => keywordWords.includes(w));
-                        if (common.length >= 1 && inputWords.length <= 4) {
+                    } else {
+                        const iw = input.split(/\s+/).filter(w => w.length >= 3);
+                        const kwd = keyword.split(/\s+/).filter(w => w.length >= 3);
+                        const common = iw.filter(w => kwd.includes(w));
+                        if (common.length >= 1 && iw.length <= 4) {
                             matched = true;
                             score = common.length * 5;
                         }
@@ -342,13 +284,32 @@
             }
 
             if (bestMatch && bestMatch.replies && bestMatch.replies.length > 0) {
-                // 🔥 GABUNGIN SEMUA JAWABAN jadi 1 paragraf
-                const fullReply = bestMatch.replies.join('<br><br>');
-                return { type: 'text', reply: fullReply };
+                return { type: 'text', reply: bestMatch.replies.join('<br><br>') };
             }
 
-            // 4. GA MATCH → auto tampilkan menu
             return { type: 'nomatch' };
+        }
+
+        // ============ HELP MENU ============
+        function tampilkanHelp() {
+            return `<div class="msg-menu">
+                <b>🤖 Command yang tersedia:</b>
+                <code>.menu</code> → Semua topik<br>
+                <code>.tentang</code> → Tentang PELITA<br>
+                <code>.fyi</code> → Fakta unik<br>
+                <code>.tips</code> → Tips & saran<br>
+                <code>.curhat</code> → Curhat & mental health<br>
+                <code>.trivia</code> → Trivia seru<br>
+                <code>.istilah</code> → Daftar istilah<br>
+                <code>.english</code> → English version<br>
+                <code>.kesehatan</code> → Kesehatan & data<br>
+                <code>.kisah</code> → Lore & cerita<br>
+                <code>.lkip</code> → Info lomba LKIP<br>
+                <code>.robot</code> → Tentang chatbot<br>
+                <code>.makanan</code> → Gizi & makanan<br>
+                <br>
+                <i style="font-size:11px; color:#666;">💡 Atau tanya langsung apa aja soal PELITA!</i>
+            </div>`;
         }
 
         // ============ SEND CHAT ============
@@ -357,24 +318,23 @@
             const input = inputEl.value.trim();
             if (!input) return;
 
-            // Pesan user
             messages.innerHTML += `<div class="msg-user">${input.replace(/</g, '&lt;')}</div>`;
             inputEl.value = '';
 
-            // Cari jawaban
             const result = findBestReply(input);
 
             setTimeout(() => {
                 if (result.type === 'menu') {
-                    messages.innerHTML += tampilkanMenu();
+                    messages.innerHTML += tampilkanMenu(result.filter, result.judul);
+                } else if (result.type === 'help') {
+                    messages.innerHTML += tampilkanHelp();
                 } else if (result.type === 'nomatch') {
-                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham pertanyaan itu. 🤔<br><br>Coba pilih topik di bawah ini 👇</div>`;
-                    messages.innerHTML += tampilkanMenu();
+                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham. 🤔<br><br>Ketik <b>.help</b> buat liat command, atau <b>.menu</b> buat liat semua topik.</div>`;
                 } else {
                     messages.innerHTML += `<div class="msg-bot">${result.reply}</div>`;
                 }
                 messages.scrollTop = messages.scrollHeight;
-            }, 250);
+            }, 200);
         };
     </script>
 </body>
