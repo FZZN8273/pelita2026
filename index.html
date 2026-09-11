@@ -34,7 +34,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://pelita2026.vercel.app/og-image.png" />
 
-    <!-- STRUCTURED DATA -->
+    <!-- STRUCTURED DATA (FAQ Schema untuk AI Overview) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -72,7 +72,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Nunito', sans-serif; background: var(--hijau); overflow-x: hidden; }
 
-        /* NAVIGASI */
+        /* ===== NAVIGASI ===== */
         .floating-header { position: fixed; top: 20px; right: 20px; z-index: 9999; }
         .hamburger { width: 50px; height: 50px; background: #fff; border: 2px solid var(--emas); border-radius: 50%; cursor: pointer; font-size: 1.5rem; color: var(--hijau); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .nav-dropdown { position: absolute; top: 60px; right: 0; background: #fff; border-radius: 10px; padding: 10px; width: 200px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -80,7 +80,7 @@
         .nav-dropdown button, .nav-dropdown a { display: block; width: 100%; padding: 10px; background: none; border: none; text-align: left; cursor: pointer; font-family: inherit; font-weight: 700; color: #333; text-decoration: none; border-radius: 6px; }
         .nav-dropdown button:hover, .nav-dropdown a:hover { background: #f0f0f0; }
 
-        /* LAYOUT */
+        /* ===== LAYOUT ===== */
         .container-website { max-width: 900px; margin: 0 auto; padding: 20px; }
         .img-section { width: 100%; border-radius: 20px; overflow: hidden; background: #fff; margin-bottom: 20px; }
         .img-section img { width: 100%; height: auto; display: block; }
@@ -88,39 +88,43 @@
         .halaman { display: none; }
         .halaman.active { display: block; }
 
-        /* AI CHAT */
-        #ai-chat-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: var(--emas); border: 4px solid #fff; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
-        #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 360px; max-width: 92vw; height: 500px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-        #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
+        /* ===== AI CHAT ===== */
+        #ai-chat-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: var(--emas); border: 4px solid #fff; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); transition: transform 0.2s; }
+        #ai-chat-btn:hover { transform: scale(1.1); }
+        #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 360px; max-width: 92vw; height: 520px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
         #ai-chat-header button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
-        #ai-chat-messages { flex: 1; padding: 12px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 8px; }
-        #ai-chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 5px; }
-        #ai-chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: inherit; }
-        #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        #ai-chat-messages { flex: 1; padding: 12px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 6px; }
+        #ai-chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 6px; }
+        #ai-chat-input { flex: 1; padding: 10px 14px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: inherit; font-size: 14px; }
+        #ai-chat-input:focus { border-color: var(--hijau); }
+        #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
+        #ai-chat-send:hover { background: #257045; }
 
-        /* BUBBLE CHAT */
-        .msg-user { align-self: flex-end; background: #2E8B57; color: #fff; padding: 10px 14px; border-radius: 16px 16px 0 16px; max-width: 85%; margin-bottom: 6px; font-size: 14px; line-height: 1.5; }
-        .msg-bot { align-self: flex-start; background: #fff; border: 1px solid #e0e0e0; padding: 10px 14px; border-radius: 16px 16px 16px 0; max-width: 85%; margin-bottom: 6px; font-size: 14px; line-height: 1.6; color: #333; }
+        /* ===== BUBBLE CHAT ===== */
+        .msg-user { align-self: flex-end; background: #2E8B57; color: #fff; padding: 10px 14px; border-radius: 16px 16px 0 16px; max-width: 85%; margin-bottom: 4px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
+        .msg-bot { align-self: flex-start; background: #fff; border: 1px solid #e0e0e0; padding: 10px 14px; border-radius: 16px 16px 16px 0; max-width: 85%; margin-bottom: 4px; font-size: 14px; line-height: 1.6; color: #333; word-wrap: break-word; }
         .msg-bot ul { margin: 4px 0 4px 18px; }
         .msg-bot li { margin-bottom: 2px; }
-        .msg-menu { align-self: flex-start; background: #FFF8DC; border: 2px solid #D4AF37; padding: 12px 14px; border-radius: 16px 16px 16px 0; max-width: 90%; margin-bottom: 6px; font-size: 13px; line-height: 1.6; color: #333; }
-        .msg-menu b { color: #2E8B57; display: block; margin-bottom: 6px; font-size: 14px; }
-        .msg-menu .topic-btn { display: inline-block; background: #fff; border: 1px solid #D4AF37; border-radius: 12px; padding: 4px 10px; margin: 3px 3px 0 0; font-size: 12px; cursor: pointer; color: #333; }
+        .msg-menu { align-self: flex-start; background: #FFF8DC; border: 2px solid #D4AF37; padding: 12px 14px; border-radius: 16px 16px 16px 0; max-width: 92%; margin-bottom: 4px; font-size: 13px; line-height: 1.6; color: #333; }
+        .msg-menu b { color: #2E8B57; display: block; margin-bottom: 8px; font-size: 14px; }
+        .msg-menu .topic-btn { display: inline-block; background: #fff; border: 1px solid #D4AF37; border-radius: 12px; padding: 4px 10px; margin: 3px 3px 0 0; font-size: 12px; cursor: pointer; color: #333; transition: 0.15s; }
         .msg-menu .topic-btn:hover { background: #D4AF37; color: #fff; }
+        .msg-loading { align-self: flex-start; color: #999; font-style: italic; font-size: 13px; padding: 6px 10px; }
 
         @media (max-width: 600px) {
             .container-website { padding: 10px; }
             .floating-header { top: 10px; right: 10px; }
             #ai-chat-btn { bottom: 15px; right: 15px; }
-            #ai-chat-window { bottom: 85px; right: 10px; height: 70vh; }
+            #ai-chat-window { bottom: 85px; right: 10px; height: 72vh; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGASI -->
+    <!-- ===== NAVIGASI ===== -->
     <header class="floating-header">
-        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
         <nav class="nav-dropdown" id="navDropdown">
             <button data-target="home">🏠 Home</button>
             <button data-target="profile">👤 Profile</button>
@@ -129,7 +133,7 @@
         </nav>
     </header>
 
-    <!-- KONTEN -->
+    <!-- ===== KONTEN ===== -->
     <main class="container-website">
         <div id="home" class="halaman active">
             <div class="seo-intro">
@@ -158,7 +162,7 @@
         </div>
     </main>
 
-    <!-- AI CHAT -->
+    <!-- ===== AI CHAT ===== -->
     <button id="ai-chat-btn" aria-label="Buka Asisten AI">🕯️</button>
     <div id="ai-chat-window" role="dialog">
         <div id="ai-chat-header">
@@ -174,7 +178,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ============ NAVIGASI ============
         const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -206,14 +210,23 @@
         const btnCloseChat = document.getElementById('btn-close-chat');
         const btnChat = document.getElementById('ai-chat-btn');
 
-        // Load knowledge.json
-        fetch('knowledge.json')
-            .then(res => res.json())
+        // Load knowledge.json + CACHE BUSTING
+        fetch('knowledge.json?v=' + Date.now())
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}: File knowledge.json tidak ditemukan. Pastikan nama file benar.`);
+                return res.json();
+            })
             .then(data => {
                 window.allKnowledge = data;
                 console.log(`✅ Loaded ${data.length} topik dari knowledge.json`);
+                // Cek topik tanpa reply
+                const broken = data.filter(t => !t.replies || t.replies.length === 0);
+                if (broken.length > 0) console.warn(`⚠️ ${broken.length} topik tanpa reply (akan di-skip)`);
             })
-            .catch(err => console.log("❌ Gagal load knowledge.json:", err));
+            .catch(err => {
+                console.error("❌ Gagal load knowledge.json:", err);
+                window.allKnowledge = [];
+            });
 
         window.toggleChat = function() {
             const win = document.getElementById('ai-chat-window');
@@ -226,25 +239,25 @@
         // ============ MENU TOPIK ============
         function tampilkanMenu() {
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return `<div class="msg-bot">⚠️ Knowledge base belum ke-load. Refresh halaman dulu ya!</div>`;
+                return `<div class="msg-bot">⚠️ Knowledge base belum ke-load.<br>Cek Console (F12) buat detail error.</div>`;
             }
             
-            // Ambil 1 keyword utama dari tiap topik (yang terpendek/mewakili)
             const topics = window.allKnowledge.map(t => {
+                if (!t.replies || t.replies.length === 0) return null;
                 if (!t.keywords || t.keywords.length === 0) return null;
-                // Pilih keyword terpendek sebagai label
-                const shortest = t.keywords.reduce((a, b) => a.length < b.length ? a : b);
-                return shortest;
-            }).filter(x => x && x.length >= 3 && x.length <= 25);
+                const candidates = t.keywords.filter(k => k.length >= 4 && k.length <= 25);
+                if (candidates.length === 0) return t.keywords[0];
+                return candidates.reduce((a, b) => a.length < b.length ? a : b);
+            }).filter(x => x);
             
-            // Dedupe + batasi 30 topik biar ga kepanjangan
             const unique = [...new Set(topics)].slice(0, 30);
             
-            let html = `<div class="msg-menu"><b>📚 Topik yang tersedia (ketik salah satu):</b>`;
+            let html = `<div class="msg-menu"><b>📚 Topik yang tersedia (klik salah satu):</b>`;
             unique.forEach(t => {
-                html += `<span class="topic-btn" onclick="kirimCepat('${t.replace(/'/g, "\\'")}')">${t}</span>`;
+                const safe = String(t).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                html += `<span class="topic-btn" onclick="kirimCepat('${safe}')">${t}</span>`;
             });
-            html += `<br><br><i style="font-size:11px; color:#666;">💡 Tips: Ketik <b>.menu</b> kapan aja buat liat daftar ini.</i></div>`;
+            html += `<br><br><i style="font-size:11px; color:#666;">💡 Ketik <b>.menu</b> kapan aja buat liat daftar ini.</i></div>`;
             return html;
         }
 
@@ -253,23 +266,29 @@
             sendChat();
         };
 
-        // ============ SMART MATCHING ============
+        // ============ SMART MATCHING (FULL REPLY) ============
         function findBestReply(userInput) {
+            const cmd = userInput.toLowerCase().trim();
+
             // Command khusus
-            if (userInput.toLowerCase().trim() === '.menu') {
+            if (cmd === '.menu' || cmd === 'menu' || cmd === 'topik' || cmd === 'daftar') {
                 return { type: 'menu' };
             }
             
+            if (cmd === 'help' || cmd === 'bantuan') {
+                return { type: 'text', reply: "Aku bisa bantu jawab soal PELITA: apa itu PELITA, siapa Fauzan, siapa Bu Okta, cara main, 12 indikator, dan masih banyak lagi.<br><br>Ketik <b>.menu</b> buat liat semua topik!" };
+            }
+            
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load. Coba refresh halaman ya!" };
+                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load.<br><br>Kemungkinan penyebab:<br>1. Nama file bukan <b>knowledge.json</b> (cek di GitHub)<br>2. File JSON rusak<br>3. Cache browser<br><br>Coba hard refresh: <b>Ctrl + Shift + R</b>" };
             }
 
-            const input = userInput.toLowerCase().trim();
+            const input = cmd;
             
             // 1. Sapaan dasar
             const sapaan = ['halo', 'hai', 'hi', 'hey', 'assalam', 'pagi', 'siang', 'sore', 'malam'];
             if (sapaan.some(s => input === s || input.startsWith(s + ' ')) && input.length < 20) {
-                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA. Tanya apa aja soal PELITA, Fauzan, Bu Okta, atau kesehatan ya!" };
+                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA. Tanya apa aja soal PELITA, Fauzan, Bu Okta, atau kesehatan ya!<br><br>Ketik <b>.menu</b> buat liat topik." };
             }
             
             // 2. Terima kasih
@@ -278,7 +297,7 @@
                 return { type: 'text', reply: "Sama-sama! 😊 Senang bisa bantu." };
             }
 
-            // 3. Cari keyword terbaik (scoring dua arah)
+            // 3. Cari keyword terbaik (scoring 3 skenario)
             let bestMatch = null;
             let bestScore = 0;
 
@@ -294,15 +313,15 @@
                     let matched = false;
                     let score = 0;
                     
-                    // A: input contains keyword
+                    // A: input contains keyword (paling kuat)
                     if (input.includes(keyword)) {
                         matched = true;
-                        score = keyword.length * 2;
+                        score = keyword.length * 3;
                     }
-                    // B: keyword contains input
+                    // B: keyword contains input (user ngetik singkat)
                     else if (keyword.includes(input) && input.length >= 4) {
                         matched = true;
-                        score = input.length;
+                        score = input.length * 2;
                     }
                     // C: multi-word partial match
                     else {
@@ -311,7 +330,7 @@
                         const common = inputWords.filter(w => keywordWords.includes(w));
                         if (common.length >= 1 && inputWords.length <= 4) {
                             matched = true;
-                            score = common.length * 3;
+                            score = common.length * 5;
                         }
                     }
                     
@@ -323,11 +342,12 @@
             }
 
             if (bestMatch && bestMatch.replies && bestMatch.replies.length > 0) {
-                const randomIdx = Math.floor(Math.random() * bestMatch.replies.length);
-                return { type: 'text', reply: bestMatch.replies[randomIdx] };
+                // 🔥 GABUNGIN SEMUA JAWABAN jadi 1 paragraf
+                const fullReply = bestMatch.replies.join('<br><br>');
+                return { type: 'text', reply: fullReply };
             }
 
-            // 4. GA MATCH → tampilkan menu
+            // 4. GA MATCH → auto tampilkan menu
             return { type: 'nomatch' };
         }
 
@@ -348,7 +368,7 @@
                 if (result.type === 'menu') {
                     messages.innerHTML += tampilkanMenu();
                 } else if (result.type === 'nomatch') {
-                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham pertanyaan itu. 🤔<br>Coba pilih topik di bawah ini, atau ketik <b>.menu</b>:</div>`;
+                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham pertanyaan itu. 🤔<br><br>Coba pilih topik di bawah ini 👇</div>`;
                     messages.innerHTML += tampilkanMenu();
                 } else {
                     messages.innerHTML += `<div class="msg-bot">${result.reply}</div>`;
