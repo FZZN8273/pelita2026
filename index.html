@@ -34,31 +34,91 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://pelita2026.vercel.app/og-image.png" />
 
-    <!-- JSON-LD FAQ (GEO) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Apa itu PELITA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "PELITA (Penerang Literasi Kesehatan) adalah game edukasi interaktif berbasis web yang mengajarkan 12 indikator literasi kesehatan WHO kepada remaja Indonesia melalui budaya wayang Nakula dan Sadewa."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Siapa pembuat PELITA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "PELITA dikembangkan oleh Fauzan untuk LKIP SMA Taruna Nusantara, dibimbing oleh Ibu Okta."
-          }
-        }
-      ]
+// ===== AI CHAT (UPGRADE) =====
+const messages = document.getElementById('ai-chat-messages');
+const btnCloseChat = document.getElementById('btn-close-chat');
+const btnChat = document.getElementById('ai-chat-btn');
+
+// Load knowledge.json
+fetch('knowledge.json')
+    .then(res => res.json())
+    .then(data => {
+        window.allKnowledge = data;
+        console.log(`✅ Loaded ${data.length} topik dari knowledge.json`);
+    })
+    .catch(err => console.log("❌ Gagal load:", err));
+
+window.toggleChat = function() {
+    const win = document.getElementById('ai-chat-window');
+    win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+};
+
+btnChat.addEventListener('click', window.toggleChat);
+btnCloseChat.addEventListener('click', window.toggleChat);
+
+// ===== FUNGSI COCOKKAN KEYWORD (LEBIH PINTAR) =====
+function findBestReply(userInput) {
+    if (!window.allKnowledge || window.allKnowledge.length === 0) {
+        return "Maaf, knowledge base belum siap. Coba refresh halaman ya!";
     }
-    </script>
+    
+    const input = userInput.toLowerCase().trim();
+    
+    // 1. Sapaan dasar (prioritas utama)
+    const sapaan = ['halo', 'hai', 'hi', 'hey', 'assalam', 'pagi', 'siang', 'sore', 'malam'];
+    if (sapaan.some(s => input.includes(s)) && input.length < 15) {
+        return "Halo! 👋 Selamat datang di PELITA. Ada yang bisa aku bantu? Tanya soal PELITA, Fauzan, Bu Okta, atau kesehatan ya!";
+    }
+    
+    if (input.includes('makasih') || input.includes('terima kasih') || input.includes('thanks')) {
+        return "Sama-sama! 😊 Senang bisa bantu. Kalau ada pertanyaan lain, tanya aja ya!";
+    }
+    
+    // 2. Cari keyword yang paling cocok
+    let bestMatch = null;
+    let bestScore = 0;
+    
+    for (let topic of window.allKnowledge) {
+        for (let kw of topic.keywords) {
+            const keyword = kw.toLowerCase().trim();
+            
+            // Skor berdasarkan panjang keyword yang cocok
+            if (input.includes(keyword)) {
+                const score = keyword.length;
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMatch = topic;
+                }
+            }
+        }
+    }
+    
+    if (bestMatch && bestMatch.replies && bestMatch.replies.length > 0) {
+        // Pilih jawaban acak
+        const randomIdx = Math.floor(Math.random() * bestMatch.replies.length);
+        return bestMatch.replies[randomIdx];
+    }
+    
+    return "Maaf, aku belum paham pertanyaannya. 🤔 Coba tanya pakai kata kunci lain ya, misalnya:<br>• <b>apa itu pelita</b><br>• <b>siapa fauzan</b><br>• <b>siapa bu okta</b><br>• <b>cara main</b>";
+}
+
+window.sendChatGemini = function() {
+    const input = document.getElementById('ai-chat-input').value.trim();
+    if (!input) return;
+
+    // Tampilkan pesan user
+    messages.innerHTML += `<div style="text-align:right; background:#2E8B57; color:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">${input}</div>`;
+    document.getElementById('ai-chat-input').value = '';
+
+    // Cari jawaban
+    const reply = findBestReply(input);
+
+    // Tampilkan jawaban
+    setTimeout(() => {
+        messages.innerHTML += `<div style="text-align:left; background:#eee; padding:10px; border-radius:10px; margin-bottom:10px;">${reply}</div>`;
+        messages.scrollTop = messages.scrollHeight;
+    }, 300);
+};
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
