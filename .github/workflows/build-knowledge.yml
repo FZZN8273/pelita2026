@@ -6,6 +6,7 @@ on:
     paths:
       - 'data/jawaban.docx'
       - 'convert.py'
+  workflow_dispatch:
 
 jobs:
   build:
