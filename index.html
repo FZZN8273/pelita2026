@@ -34,7 +34,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://pelita2026.vercel.app/og-image.png" />
 
-    <!-- STRUCTURED DATA (GEO) -->
+    <!-- STRUCTURED DATA -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -72,12 +72,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Nunito', sans-serif; background: var(--hijau); overflow-x: hidden; }
 
+        /* NAVIGASI */
         .floating-header { position: fixed; top: 20px; right: 20px; z-index: 9999; }
         .hamburger { width: 50px; height: 50px; background: #fff; border: 2px solid var(--emas); border-radius: 50%; cursor: pointer; font-size: 1.5rem; color: var(--hijau); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .nav-dropdown { position: absolute; top: 60px; right: 0; background: #fff; border-radius: 10px; padding: 10px; width: 180px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .nav-dropdown { position: absolute; top: 60px; right: 0; background: #fff; border-radius: 10px; padding: 10px; width: 200px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .nav-dropdown.open { display: block; }
-        .nav-dropdown button, .nav-dropdown a { display: block; width: 100%; padding: 10px; background: none; border: none; text-align: left; cursor: pointer; font-family: inherit; font-weight: 700; color: #333; text-decoration: none; }
+        .nav-dropdown button, .nav-dropdown a { display: block; width: 100%; padding: 10px; background: none; border: none; text-align: left; cursor: pointer; font-family: inherit; font-weight: 700; color: #333; text-decoration: none; border-radius: 6px; }
         .nav-dropdown button:hover, .nav-dropdown a:hover { background: #f0f0f0; }
+
+        /* LAYOUT */
         .container-website { max-width: 900px; margin: 0 auto; padding: 20px; }
         .img-section { width: 100%; border-radius: 20px; overflow: hidden; background: #fff; margin-bottom: 20px; }
         .img-section img { width: 100%; height: auto; display: block; }
@@ -85,19 +88,31 @@
         .halaman { display: none; }
         .halaman.active { display: block; }
 
+        /* AI CHAT */
         #ai-chat-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: var(--emas); border: 4px solid #fff; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
-        #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 350px; max-width: 90vw; height: 450px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 360px; max-width: 92vw; height: 500px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
         #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
         #ai-chat-header button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
-        #ai-chat-messages { flex: 1; padding: 10px; overflow-y: auto; background: #f9f9f9; }
+        #ai-chat-messages { flex: 1; padding: 12px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 8px; }
         #ai-chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 5px; }
-        #ai-chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
-        #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; }
+        #ai-chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: inherit; }
+        #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+
+        /* BUBBLE CHAT */
+        .msg-user { align-self: flex-end; background: #2E8B57; color: #fff; padding: 10px 14px; border-radius: 16px 16px 0 16px; max-width: 85%; margin-bottom: 6px; font-size: 14px; line-height: 1.5; }
+        .msg-bot { align-self: flex-start; background: #fff; border: 1px solid #e0e0e0; padding: 10px 14px; border-radius: 16px 16px 16px 0; max-width: 85%; margin-bottom: 6px; font-size: 14px; line-height: 1.6; color: #333; }
+        .msg-bot ul { margin: 4px 0 4px 18px; }
+        .msg-bot li { margin-bottom: 2px; }
+        .msg-menu { align-self: flex-start; background: #FFF8DC; border: 2px solid #D4AF37; padding: 12px 14px; border-radius: 16px 16px 16px 0; max-width: 90%; margin-bottom: 6px; font-size: 13px; line-height: 1.6; color: #333; }
+        .msg-menu b { color: #2E8B57; display: block; margin-bottom: 6px; font-size: 14px; }
+        .msg-menu .topic-btn { display: inline-block; background: #fff; border: 1px solid #D4AF37; border-radius: 12px; padding: 4px 10px; margin: 3px 3px 0 0; font-size: 12px; cursor: pointer; color: #333; }
+        .msg-menu .topic-btn:hover { background: #D4AF37; color: #fff; }
 
         @media (max-width: 600px) {
             .container-website { padding: 10px; }
             .floating-header { top: 10px; right: 10px; }
             #ai-chat-btn { bottom: 15px; right: 15px; }
+            #ai-chat-window { bottom: 85px; right: 10px; height: 70vh; }
         }
     </style>
 </head>
@@ -110,11 +125,11 @@
             <button data-target="home">🏠 Home</button>
             <button data-target="profile">👤 Profile</button>
             <button data-target="howtoplay">🎮 Cara Main</button>
-            <a href="https://pelita2026.vercel.app/" target="_blank">🚀 Mulai Game</a>
+            <a href="https://pelita-game.vercel.app/" target="_blank">🚀 Mulai Game</a>
         </nav>
     </header>
 
-    <!-- KONTEN UTAMA -->
+    <!-- KONTEN -->
     <main class="container-website">
         <div id="home" class="halaman active">
             <div class="seo-intro">
@@ -132,31 +147,34 @@
             <div class="img-section"><img src="profile3.png" alt="Profil Ucapan"></div>
         </div>
 
-        <div id="howtoplay" class="halaman" style="padding-top: 60px;">
-            <h2>Cara Main</h2>
-            <p>Baca cerita, pilih A/B/C, dapat bintang. Bintang tidak berkurang jika salah.</p>
+        <div id="howtoplay" class="halaman" style="padding-top: 60px; background: #fff; border-radius: 20px; padding: 30px;">
+            <h2 style="color: #2E8B57; margin-bottom: 12px;">🎮 Cara Main PELITA</h2>
+            <p style="margin-bottom: 10px;">1. Baca cerita di setiap babak.</p>
+            <p style="margin-bottom: 10px;">2. Pilih jawaban A, B, atau C.</p>
+            <p style="margin-bottom: 10px;">3. Lihat hasilnya (benar atau salah).</p>
+            <p style="margin-bottom: 10px;">4. Jawaban benar dapat 1 bintang.</p>
+            <p style="margin-bottom: 10px;">5. Baca tips kesehatan di akhir babak.</p>
+            <p style="margin-bottom: 10px;"><b>Tidak ada hukuman. Bintang tidak berkurang kalau salah.</b></p>
         </div>
     </main>
 
     <!-- AI CHAT -->
-    <button id="ai-chat-btn">🕯️</button>
-    <div id="ai-chat-window">
+    <button id="ai-chat-btn" aria-label="Buka Asisten AI">🕯️</button>
+    <div id="ai-chat-window" role="dialog">
         <div id="ai-chat-header">
             <span>🕯️ Asisten PELITA</span>
-            <button id="btn-close-chat">✕</button>
+            <button id="btn-close-chat" aria-label="Tutup">✕</button>
         </div>
         <div id="ai-chat-messages">
-            <div style="padding:10px; background:#eee; border-radius:10px; margin-bottom:10px;">
-                Halo! 👋 Aku Asisten PELITA. Tanya soal Fauzan, Bu Okta, atau PELITA ya!
-            </div>
+            <div class="msg-bot">Halo! 👋 Aku Asisten PELITA.<br>Ketik <b>.menu</b> buat liat semua topik, atau tanya langsung apa aja soal PELITA.</div>
         </div>
         <div id="ai-chat-input-area">
-            <input type="text" id="ai-chat-input" placeholder="Tulis pertanyaan..." onkeypress="if(event.key==='Enter') sendChatGemini()">
-            <button id="ai-chat-send" onclick="sendChatGemini()">Kirim</button>
+            <input type="text" id="ai-chat-input" placeholder="Tulis pertanyaan atau .menu..." onkeypress="if(event.key==='Enter') sendChat()">
+            <button id="ai-chat-send" onclick="sendChat()">Kirim</button>
         </div>
     </div>
 
-    <!-- ===== JAVASCRIPT (SEMUA DI BAWAH) ===== -->
+    <!-- JAVASCRIPT -->
     <script>
         // ============ NAVIGASI ============
         const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -173,7 +191,7 @@
             }
         });
 
-        document.querySelectorAll('.nav-dropdown button').forEach(btn => {
+        document.querySelectorAll('.nav-dropdown button[data-target]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const target = this.getAttribute('data-target');
                 document.querySelectorAll('.halaman').forEach(h => h.classList.remove('active'));
@@ -205,70 +223,138 @@
         btnChat.addEventListener('click', window.toggleChat);
         btnCloseChat.addEventListener('click', window.toggleChat);
 
-        // Fungsi mencari jawaban terbaik
-        function findBestReply(userInput) {
+        // ============ MENU TOPIK ============
+        function tampilkanMenu() {
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return "Maaf, knowledge base belum siap. Coba refresh halaman ya!";
+                return `<div class="msg-bot">⚠️ Knowledge base belum ke-load. Refresh halaman dulu ya!</div>`;
+            }
+            
+            // Ambil 1 keyword utama dari tiap topik (yang terpendek/mewakili)
+            const topics = window.allKnowledge.map(t => {
+                if (!t.keywords || t.keywords.length === 0) return null;
+                // Pilih keyword terpendek sebagai label
+                const shortest = t.keywords.reduce((a, b) => a.length < b.length ? a : b);
+                return shortest;
+            }).filter(x => x && x.length >= 3 && x.length <= 25);
+            
+            // Dedupe + batasi 30 topik biar ga kepanjangan
+            const unique = [...new Set(topics)].slice(0, 30);
+            
+            let html = `<div class="msg-menu"><b>📚 Topik yang tersedia (ketik salah satu):</b>`;
+            unique.forEach(t => {
+                html += `<span class="topic-btn" onclick="kirimCepat('${t.replace(/'/g, "\\'")}')">${t}</span>`;
+            });
+            html += `<br><br><i style="font-size:11px; color:#666;">💡 Tips: Ketik <b>.menu</b> kapan aja buat liat daftar ini.</i></div>`;
+            return html;
+        }
+
+        window.kirimCepat = function(text) {
+            document.getElementById('ai-chat-input').value = text;
+            sendChat();
+        };
+
+        // ============ SMART MATCHING ============
+        function findBestReply(userInput) {
+            // Command khusus
+            if (userInput.toLowerCase().trim() === '.menu') {
+                return { type: 'menu' };
+            }
+            
+            if (!window.allKnowledge || window.allKnowledge.length === 0) {
+                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load. Coba refresh halaman ya!" };
             }
 
             const input = userInput.toLowerCase().trim();
-
+            
             // 1. Sapaan dasar
             const sapaan = ['halo', 'hai', 'hi', 'hey', 'assalam', 'pagi', 'siang', 'sore', 'malam'];
-            if (sapaan.some(s => input.includes(s)) && input.length < 20) {
-                return "Halo! 👋 Selamat datang di PELITA. Tanya apa aja soal PELITA, Fauzan, Bu Okta, atau kesehatan ya!";
+            if (sapaan.some(s => input === s || input.startsWith(s + ' ')) && input.length < 20) {
+                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA. Tanya apa aja soal PELITA, Fauzan, Bu Okta, atau kesehatan ya!" };
             }
-
+            
             // 2. Terima kasih
-            if (input.includes('makasih') || input.includes('terima kasih') || input.includes('thanks') || input.includes('thx')) {
-                return "Sama-sama! 😊 Senang bisa bantu. Kalau ada pertanyaan lain, tanya aja ya!";
+            if (input.includes('makasih') || input.includes('terima kasih') || 
+                input.includes('thanks') || input.includes('thx') || input === 'tq') {
+                return { type: 'text', reply: "Sama-sama! 😊 Senang bisa bantu." };
             }
 
-            // 3. Cari keyword terbaik
+            // 3. Cari keyword terbaik (scoring dua arah)
             let bestMatch = null;
             let bestScore = 0;
 
             for (let topic of window.allKnowledge) {
+                if (!topic.replies || topic.replies.length === 0) continue;
                 if (!topic.keywords || !Array.isArray(topic.keywords)) continue;
+                
                 for (let kw of topic.keywords) {
                     const keyword = String(kw).toLowerCase().trim();
-                    if (keyword.length === 0) continue;
-
+                    if (keyword.length < 3) continue;
+                    if (keyword.length > 40) continue;
+                    
+                    let matched = false;
+                    let score = 0;
+                    
+                    // A: input contains keyword
                     if (input.includes(keyword)) {
-                        const score = keyword.length;
-                        if (score > bestScore) {
-                            bestScore = score;
-                            bestMatch = topic;
+                        matched = true;
+                        score = keyword.length * 2;
+                    }
+                    // B: keyword contains input
+                    else if (keyword.includes(input) && input.length >= 4) {
+                        matched = true;
+                        score = input.length;
+                    }
+                    // C: multi-word partial match
+                    else {
+                        const inputWords = input.split(/\s+/).filter(w => w.length >= 3);
+                        const keywordWords = keyword.split(/\s+/).filter(w => w.length >= 3);
+                        const common = inputWords.filter(w => keywordWords.includes(w));
+                        if (common.length >= 1 && inputWords.length <= 4) {
+                            matched = true;
+                            score = common.length * 3;
                         }
+                    }
+                    
+                    if (matched && score > bestScore) {
+                        bestScore = score;
+                        bestMatch = topic;
                     }
                 }
             }
 
             if (bestMatch && bestMatch.replies && bestMatch.replies.length > 0) {
                 const randomIdx = Math.floor(Math.random() * bestMatch.replies.length);
-                return bestMatch.replies[randomIdx];
+                return { type: 'text', reply: bestMatch.replies[randomIdx] };
             }
 
-            return "Maaf, aku belum paham pertanyaannya. 🤔 Coba tanya:<br>• <b>apa itu pelita</b><br>• <b>siapa fauzan</b><br>• <b>siapa bu okta</b><br>• <b>cara main</b>";
+            // 4. GA MATCH → tampilkan menu
+            return { type: 'nomatch' };
         }
 
-        window.sendChatGemini = function() {
+        // ============ SEND CHAT ============
+        window.sendChat = function() {
             const inputEl = document.getElementById('ai-chat-input');
             const input = inputEl.value.trim();
             if (!input) return;
 
             // Pesan user
-            messages.innerHTML += `<div style="text-align:right; background:#2E8B57; color:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">${input}</div>`;
+            messages.innerHTML += `<div class="msg-user">${input.replace(/</g, '&lt;')}</div>`;
             inputEl.value = '';
 
             // Cari jawaban
-            const reply = findBestReply(input);
+            const result = findBestReply(input);
 
-            // Delay sedikit biar kerasa natural
             setTimeout(() => {
-                messages.innerHTML += `<div style="text-align:left; background:#eee; padding:10px; border-radius:10px; margin-bottom:10px;">${reply}</div>`;
+                if (result.type === 'menu') {
+                    messages.innerHTML += tampilkanMenu();
+                } else if (result.type === 'nomatch') {
+                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham pertanyaan itu. 🤔<br>Coba pilih topik di bawah ini, atau ketik <b>.menu</b>:</div>`;
+                    messages.innerHTML += tampilkanMenu();
+                } else {
+                    messages.innerHTML += `<div class="msg-bot">${result.reply}</div>`;
+                }
                 messages.scrollTop = messages.scrollHeight;
-            }, 300);
+            }, 250);
         };
     </script>
 </body>
