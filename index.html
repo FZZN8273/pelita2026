@@ -5,22 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="JBBlfe5CvQKoZZo7eZkH7J_iUpLR6q13f9kTqQYnEWY" />
     <title>PELITA – Penerang Literasi Kesehatan Nusantara</title>
-    <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web untuk meningkatkan literasi kesehatan remaja melalui 12 indikator WHO dan budaya wayang Nakula dan Sadewa." />
+    <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web untuk meningkatkan literasi kesehatan remaja melalui 12 indikator WHO." />
     <meta name="keywords" content="PELITA, game edukasi, literasi kesehatan, 12 indikator WHO, Nakula, Sadewa, Fauzan, LKIP" />
     <meta name="author" content="Fauzan" />
-    <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <meta property="og:title" content="PELITA – Penerang Literasi Kesehatan Nusantara" />
-    <meta property="og:description" content="Game edukasi 12 indikator kesehatan WHO untuk remaja." />
     <meta property="og:image" content="https://pelita2026.vercel.app/og-image.png" />
     <meta property="og:url" content="https://pelita2026.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Apa itu PELITA?","acceptedAnswer":{"@type":"Answer","text":"PELITA adalah game edukasi interaktif berbasis web yang mengajarkan 12 indikator literasi kesehatan WHO kepada remaja Indonesia."}}]}
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -39,30 +33,125 @@
         .seo-intro { text-align: center; background: var(--krem); padding: 20px; border-radius: 20px; margin-bottom: 20px; color: #333; }
         .halaman { display: none; }
         .halaman.active { display: block; }
+
+        /* ===== AI CHAT ===== */
         #ai-chat-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: var(--emas); border: 4px solid #fff; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); transition: transform 0.2s; }
         #ai-chat-btn:hover { transform: scale(1.1); }
         #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 400px; max-width: 94vw; height: 560px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
         #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
         #ai-chat-header button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
         #ai-chat-messages { flex: 1; padding: 12px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 6px; }
-        #ai-chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 6px; }
+
+        /* ===== SUGGESTION PANEL (BARU) ===== */
+        #suggestion-panel {
+            position: absolute;
+            bottom: 60px;
+            left: 10px;
+            right: 10px;
+            max-height: 320px;
+            background: #fff;
+            border: 2px solid var(--emas);
+            border-radius: 12px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 10000;
+        }
+        #suggestion-panel.show { display: flex; }
+        .sugg-header {
+            background: var(--krem);
+            padding: 8px 12px;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--hijau);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--emas);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sugg-header .close-sugg {
+            background: none;
+            border: none;
+            color: var(--hijau);
+            font-size: 14px;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        .sugg-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 4px;
+        }
+        .sugg-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #333;
+            transition: 0.15s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .sugg-item:last-child { border-bottom: none; }
+        .sugg-item:hover {
+            background: var(--krem);
+        }
+        .sugg-item .sugg-icon {
+            font-size: 16px;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .sugg-item .sugg-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+        .sugg-item .sugg-text b {
+            color: var(--hijau);
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        .sugg-item .sugg-desc {
+            font-size: 11px;
+            color: #888;
+            display: block;
+            margin-top: 1px;
+        }
+        .sugg-category {
+            padding: 6px 10px;
+            font-size: 10px;
+            font-weight: 800;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #fafafa;
+            margin: 4px 0 2px 0;
+            border-radius: 4px;
+        }
+
+        /* ===== INPUT AREA ===== */
+        #ai-chat-input-area { position: relative; padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 6px; background: #fff; }
         #ai-chat-input { flex: 1; padding: 10px 14px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: inherit; font-size: 14px; }
         #ai-chat-input:focus { border-color: var(--hijau); }
         #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
         #ai-chat-send:hover { background: #257045; }
+
+        /* ===== BUBBLE CHAT ===== */
         .msg-user { align-self: flex-end; background: #2E8B57; color: #fff; padding: 10px 14px; border-radius: 16px 16px 0 16px; max-width: 85%; margin-bottom: 4px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
         .msg-bot { align-self: flex-start; background: #fff; border: 1px solid #e0e0e0; padding: 10px 14px; border-radius: 16px 16px 16px 0; max-width: 88%; margin-bottom: 4px; font-size: 14px; line-height: 1.6; color: #333; word-wrap: break-word; }
         .msg-bot code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #d63384; font-family: 'Courier New', monospace; }
-        .msg-menu { align-self: flex-start; background: #FFF8DC; border: 2px solid #D4AF37; padding: 12px 14px; border-radius: 16px 16px 16px 0; max-width: 95%; margin-bottom: 4px; font-size: 13px; line-height: 1.7; color: #333; }
-        .msg-menu b { color: #2E8B57; display: block; margin-bottom: 8px; font-size: 14px; }
-        .msg-menu code { background: #fff; border: 1px solid #D4AF37; padding: 3px 8px; border-radius: 6px; font-size: 12px; color: #2E8B57; font-weight: 700; cursor: pointer; display: inline-block; margin: 2px 2px 0 0; font-family: 'Courier New', monospace; }
-        .msg-menu code:hover { background: #D4AF37; color: #fff; }
-        .msg-menu .section { color: #555; font-size: 12px; font-weight: 700; margin-top: 10px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
         @media (max-width: 600px) {
             .container-website { padding: 10px; }
             .floating-header { top: 10px; right: 10px; }
             #ai-chat-btn { bottom: 15px; right: 15px; }
-            #ai-chat-window { bottom: 85px; right: 10px; height: 75vh; }
+            #ai-chat-window { bottom: 85px; right: 10px; height: 78vh; }
+            #suggestion-panel { max-height: 40vh; }
         }
     </style>
 </head>
@@ -100,7 +189,6 @@
             <p style="margin-bottom: 10px;">3. Lihat hasilnya (benar atau salah).</p>
             <p style="margin-bottom: 10px;">4. Jawaban benar dapat 1 bintang.</p>
             <p style="margin-bottom: 10px;">5. Baca tips kesehatan di akhir babak.</p>
-            <p style="margin-bottom: 10px;"><b>Tidak ada hukuman. Bintang tidak berkurang kalau salah.</b></p>
         </div>
     </main>
 
@@ -111,10 +199,17 @@
             <button id="btn-close-chat">✕</button>
         </div>
         <div id="ai-chat-messages">
-            <div class="msg-bot">Halo! 👋 Aku Asisten PELITA.<br><br>Ketik <code>.help</code> buat liat semua command, atau langsung tanya apa aja soal PELITA.</div>
+            <div class="msg-bot">Halo! 👋 Aku Asisten PELITA.<br><br>Ketik <code>.</code> (titik) buat buka menu saran, atau langsung tanya apa aja soal PELITA.</div>
         </div>
         <div id="ai-chat-input-area">
-            <input type="text" id="ai-chat-input" placeholder="Tulis command atau pertanyaan..." onkeypress="if(event.key==='Enter') sendChat()">
+            <div id="suggestion-panel">
+                <div class="sugg-header">
+                    <span>📋 Pilih topik</span>
+                    <button class="close-sugg" onclick="tutupSuggestion()">✕</button>
+                </div>
+                <div class="sugg-body" id="suggBody"></div>
+            </div>
+            <input type="text" id="ai-chat-input" placeholder="Ketik . atau pertanyaan..." onkeypress="if(event.key==='Enter') sendChat()" oninput="handleInput(event)">
             <button id="ai-chat-send" onclick="sendChat()">Kirim</button>
         </div>
     </div>
@@ -141,6 +236,9 @@
         const messages = document.getElementById('ai-chat-messages');
         const btnCloseChat = document.getElementById('btn-close-chat');
         const btnChat = document.getElementById('ai-chat-btn');
+        const inputEl = document.getElementById('ai-chat-input');
+        const suggPanel = document.getElementById('suggestion-panel');
+        const suggBody = document.getElementById('suggBody');
 
         fetch('knowledge.json?v=' + Date.now())
             .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
@@ -153,11 +251,83 @@
         window.toggleChat = function() {
             const win = document.getElementById('ai-chat-window');
             win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+            if (win.style.display === 'none') tutupSuggestion();
         };
         btnChat.addEventListener('click', window.toggleChat);
         btnCloseChat.addEventListener('click', window.toggleChat);
 
-        // ============ HELPER: FILTER TOPIK ============
+        // ============ COMMAND SUGGESTIONS (HIRARKI 3-TIER) ============
+        const COMMANDS_META = [
+            // TIER 1: UTAMA
+            { cmd: '.menu',        desc: 'Semua topik tersedia',           tier: '🔹 UTAMA' },
+            { cmd: '.about',       desc: 'Tentang PELITA',                 tier: '🔹 UTAMA' },
+            { cmd: '.play',        desc: 'Link mainkan PELITA',            tier: '🔹 UTAMA' },
+            { cmd: '.contact',     desc: 'Kontak Fauzan',                  tier: '🔹 UTAMA' },
+            { cmd: '.creator',     desc: 'Profil Fauzan',                  tier: '🔹 UTAMA' },
+            { cmd: '.okta',        desc: 'Info Bu Okta (pembimbing)',      tier: '🔹 UTAMA' },
+            { cmd: '.help',        desc: 'Daftar semua command',           tier: '🔹 UTAMA' },
+
+            // TIER 2: KATEGORI
+            { cmd: '.info',        desc: 'Info umum PELITA',               tier: '📚 INFO' },
+            { cmd: '.gameplay',    desc: 'Gameplay & mekanik',             tier: '📚 INFO' },
+            { cmd: '.chapters',    desc: 'Daftar 12 babak',                tier: '📚 INFO' },
+            { cmd: '.characters',  desc: 'Nakula & Sadewa',                tier: '📚 INFO' },
+            { cmd: '.health',      desc: 'Kesehatan & WHO',                tier: '📚 INFO' },
+            { cmd: '.tech',        desc: 'Teknologi PELITA',               tier: '📚 INFO' },
+            { cmd: '.research',    desc: 'Penelitian & metodologi',        tier: '📚 INFO' },
+            { cmd: '.philosophy',  desc: 'Filosofi & konsep',              tier: '📚 INFO' },
+            
+            // TIER 2: KESEHATAN
+            { cmd: '.obat',        desc: 'Literasi obat',                  tier: '🩺 KESEHATAN' },
+            { cmd: '.sanitasi',    desc: 'Sanitasi & ODF',                 tier: '🩺 KESEHATAN' },
+            { cmd: '.gizi',        desc: 'Gizi & anemia',                  tier: '🩺 KESEHATAN' },
+            { cmd: '.hoaks',       desc: 'Cara lawan hoaks',               tier: '🩺 KESEHATAN' },
+            { cmd: '.mental',      desc: 'Kesehatan mental',               tier: '🩺 KESEHATAN' },
+            { cmd: '.gempa',       desc: 'Kesiapsiagaan bencana',          tier: '🩺 KESEHATAN' },
+            { cmd: '.tbc',         desc: 'Info TBC',                       tier: '🩺 KESEHATAN' },
+            { cmd: '.rujukan',     desc: 'Sistem rujukan',                 tier: '🩺 KESEHATAN' },
+            { cmd: '.vaksin',      desc: 'Vaksinasi & herd immunity',      tier: '🩺 KESEHATAN' },
+            { cmd: '.p3k',         desc: 'Pertolongan pertama',            tier: '🩺 KESEHATAN' },
+
+            // TIER 2: GAMEPLAY
+            { cmd: '.howto',       desc: 'Cara main step-by-step',         tier: '🎮 GAMEPLAY' },
+            { cmd: '.hint',        desc: 'Hint per babak',                 tier: '🎮 GAMEPLAY' },
+            { cmd: '.bintang',     desc: 'Sistem bintang',                 tier: '🎮 GAMEPLAY' },
+            { cmd: '.ending',      desc: 'Info ending',                    tier: '🎮 GAMEPLAY' },
+            { cmd: '.easteregg',   desc: 'Rahasia tersembunyi',            tier: '🎮 GAMEPLAY' },
+            { cmd: '.lore',        desc: 'Cerita latar belakang',          tier: '🎮 GAMEPLAY' },
+            { cmd: '.trivia',      desc: 'Fakta unik',                     tier: '🎮 GAMEPLAY' },
+
+            // TIER 2: TEKNIS
+            { cmd: '.html',        desc: 'HTML di PELITA',                 tier: '💻 TEKNIS' },
+            { cmd: '.css',         desc: 'CSS di PELITA',                  tier: '💻 TEKNIS' },
+            { cmd: '.js',          desc: 'JavaScript di PELITA',           tier: '💻 TEKNIS' },
+            { cmd: '.github',      desc: 'Repo & deploy',                  tier: '💻 TEKNIS' },
+            { cmd: '.vercel',      desc: 'Hosting Vercel',                 tier: '💻 TEKNIS' },
+            { cmd: '.privacy',     desc: 'Privasi pengguna',               tier: '💻 TEKNIS' },
+            { cmd: '.bug',         desc: 'Lapor bug',                      tier: '💻 TEKNIS' },
+            { cmd: '.faq',         desc: 'Pertanyaan umum',                tier: '💻 TEKNIS' },
+
+            // TIER 2: LAINNYA
+            { cmd: '.lkip',        desc: 'Info LKIP 2026',                 tier: '📦 LAINNYA' },
+            { cmd: '.semar',       desc: 'Game SEMAR (Juara LKIP 2025)',   tier: '📦 LAINNYA' },
+            { cmd: '.sdgs',        desc: 'Kaitan dengan SDGs',             tier: '📦 LAINNYA' },
+            { cmd: '.generasi2045',desc: 'Generasi Emas 2045',             tier: '📦 LAINNYA' },
+            { cmd: '.credits',     desc: 'Kredit & thanks',                tier: '📦 LAINNYA' },
+            { cmd: '.feedback',    desc: 'Kirim masukan',                  tier: '📦 LAINNYA' },
+            { cmd: '.collab',      desc: 'Kolaborasi',                     tier: '📦 LAINNYA' },
+            { cmd: '.donate',      desc: 'Info donasi',                    tier: '📦 LAINNYA' },
+            { cmd: '.version',     desc: 'Versi & changelog',              tier: '📦 LAINNYA' },
+            { cmd: '.curhat',      desc: 'Curhat kesehatan mental',        tier: '📦 LAINNYA' },
+            { cmd: '.tips',        desc: 'Tips kesehatan & belajar',       tier: '📦 LAINNYA' },
+            { cmd: '.english',     desc: 'English version',                tier: '📦 LAINNYA' },
+            { cmd: '.glossary',    desc: 'Daftar istilah',                 tier: '📦 LAINNYA' },
+            { cmd: '.ai',          desc: 'Penjelasan AI chatbot',          tier: '📦 LAINNYA' },
+            { cmd: '.fun',         desc: 'Easter egg & jokes',             tier: '📦 LAINNYA' },
+            { cmd: '.makanan',     desc: 'Gizi & makanan',                 tier: '📦 LAINNYA' }
+        ];
+
+        // Helper: filter topic
         function hasKeyword(topic, patterns) {
             if (!topic.keywords) return false;
             return topic.keywords.some(k => {
@@ -165,7 +335,6 @@
                 return patterns.some(p => kl.includes(p));
             });
         }
-
         function hasReplyContain(topic, patterns) {
             if (!topic.replies) return false;
             return topic.replies.some(r => {
@@ -173,41 +342,26 @@
                 return patterns.some(p => rl.includes(p));
             });
         }
-
         function matchTopic(topic, patterns) {
             return hasKeyword(topic, patterns) || hasReplyContain(topic, patterns);
         }
 
-        // ============ COMMAND DEFINITIONS (3 TIER) ============
+        // Command filter map
         const COMMANDS = {
-            // ===== TIER 1: UTAMA (5) =====
             '.menu':    { filter: null, judul: '🗂️ Semua Topik' },
-            '.all':     { filter: null, judul: '🗂️ Semua Topik' },
-            '.topik':   { filter: null, judul: '🗂️ Semua Topik' },
             '.about':   { filter: t => matchTopic(t, ['apa itu pelita', 'tentang pelita', 'pelita itu']), judul: '🕯️ Tentang PELITA' },
             '.play':    { filter: t => matchTopic(t, ['link pelita', 'mainkan pelita', 'akses game']), judul: '🚀 Mainkan PELITA' },
             '.contact': { filter: t => matchTopic(t, ['kontak pelita', 'sosmed', 'hubungi']), judul: '📞 Kontak Fauzan' },
             '.creator': { filter: t => matchTopic(t, ['siapa fauzan', 'profil fauzan', 'pencipta pelita', 'pembuat pelita']), judul: '🧑‍💻 Profil Fauzan' },
-            '.okta':    { filter: t => matchTopic(t, ['bu okta', 'guru pembimbing']), judul: '👩‍🏫 Bu Okta (Pembimbing)' },
-
-            // ===== TIER 2: KATEGORI (15) =====
-            '.info':       { filter: t => matchTopic(t, ['apa itu pelita', 'tentang pelita', 'info pelita', 'pelita adalah']), judul: 'ℹ️ Info Umum PELITA' },
-            '.gameplay':   { filter: t => matchTopic(t, ['cara main', 'mekanik', 'gameplay', 'mainnya']), judul: '🎮 Gameplay & Mekanik' },
-            '.chapters':   { filter: t => matchTopic(t, ['babak', 'urutan', 'daftar babak']), judul: '📖 12 Babak PELITA' },
-            '.characters': { filter: t => matchTopic(t, ['nakula', 'sadewa', 'karakter', 'wayang']), judul: '🎭 Karakter (Nakula & Sadewa)' },
-            '.health':     { filter: t => matchTopic(t, ['kesehatan', 'indikator', 'who', 'data']), judul: '🩺 Kesehatan & Indikator WHO' },
-            '.tech':       { filter: t => matchTopic(t, ['html', 'css', 'javascript', 'github', 'vercel', 'coding', 'teknologi']), judul: '💻 Teknologi PELITA' },
-            '.research':   { filter: t => matchTopic(t, ['penelitian', 'riset', 'metode', 'post-test', 'likert']), judul: '🔬 Penelitian & Metodologi' },
-            '.lkip':       { filter: t => matchTopic(t, ['lkip', 'lomba', 'kompetisi', 'juara']), judul: '🏆 LKIP 2026' },
-            '.philosophy': { filter: t => matchTopic(t, ['stealth learning', 'filosofi', 'konsep', 'gamifikasi']), judul: '💭 Filosofi & Konsep' },
-            '.tips':       { filter: t => matchTopic(t, ['tips', 'saran', 'rekomendasi']), judul: '📌 Tips & Saran' },
-            '.curhat':     { filter: t => matchTopic(t, ['curhat', 'sedih', 'galau', 'overthinking', 'mental']), judul: '💙 Curhat & Mental Health' },
-            '.english':    { filter: t => matchTopic(t, ['english', 'english version', 'glossary']), judul: '🇬🇧 English Version' },
-            '.glossary':   { filter: t => matchTopic(t, ['istilah', 'glossary']), judul: '📖 Daftar Istilah' },
-            '.ai':         { filter: t => matchTopic(t, ['ai', 'chatbot', 'nlp', 'llm']), judul: '🤖 Tentang Chatbot AI' },
-            '.fun':        { filter: t => matchTopic(t, ['lucu', 'jokes', 'easter egg', 'trivia', 'quote', 'motivasi']), judul: '🎉 Fun & Easter Egg' },
-
-            // ===== TIER 3: SPESIFIK - KESEHATAN (10) =====
+            '.okta':    { filter: t => matchTopic(t, ['bu okta', 'guru pembimbing']), judul: '👩‍🏫 Bu Okta' },
+            '.info':    { filter: t => matchTopic(t, ['apa itu pelita', 'tentang pelita', 'info pelita', 'pelita adalah']), judul: 'ℹ️ Info Umum PELITA' },
+            '.gameplay':{ filter: t => matchTopic(t, ['cara main', 'mekanik', 'gameplay', 'mainnya']), judul: '🎮 Gameplay & Mekanik' },
+            '.chapters':{ filter: t => matchTopic(t, ['babak', 'urutan', 'daftar babak']), judul: '📖 12 Babak PELITA' },
+            '.characters':{ filter: t => matchTopic(t, ['nakula', 'sadewa', 'karakter', 'wayang']), judul: '🎭 Karakter' },
+            '.health':  { filter: t => matchTopic(t, ['kesehatan', 'indikator', 'who', 'data']), judul: '🩺 Kesehatan & WHO' },
+            '.tech':    { filter: t => matchTopic(t, ['html', 'css', 'javascript', 'github', 'vercel', 'coding', 'teknologi']), judul: '💻 Teknologi PELITA' },
+            '.research':{ filter: t => matchTopic(t, ['penelitian', 'riset', 'metode', 'post-test', 'likert']), judul: '🔬 Penelitian' },
+            '.philosophy':{ filter: t => matchTopic(t, ['stealth learning', 'filosofi', 'konsep', 'gamifikasi']), judul: '💭 Filosofi & Konsep' },
             '.obat':     { filter: t => matchTopic(t, ['literasi obat', 'paracetamol', 'antibiotik', 'obat']), judul: '💊 Literasi Obat' },
             '.sanitasi': { filter: t => matchTopic(t, ['sanitasi', 'odf', 'jamban', 'cuci tangan']), judul: '🚽 Sanitasi & ODF' },
             '.gizi':     { filter: t => matchTopic(t, ['gizi', 'anemia', 'nutrisi', 'makanan']), judul: '🥗 Gizi & Anemia' },
@@ -216,43 +370,92 @@
             '.gempa':    { filter: t => matchTopic(t, ['gempa', 'bencana', 'tsunami', 'evakuasi']), judul: '🌋 Kesiapsiagaan Bencana' },
             '.tbc':      { filter: t => matchTopic(t, ['tbc', 'tuberkulosis', 'dots']), judul: '🫁 Info TBC' },
             '.rujukan':  { filter: t => matchTopic(t, ['rujukan', 'puskesmas', 'bpjs', 'referral']), judul: '🏥 Sistem Rujukan' },
-            '.vaksin':   { filter: t => matchTopic(t, ['vaksin', 'imunisasi', 'herd immunity']), judul: '💉 Vaksinasi & Herd Immunity' },
-            '.p3k':      { filter: t => matchTopic(t, ['p3k', 'pertolongan pertama', 'first aid', 'cpr']), judul: '🩹 Pertolongan Pertama (P3K)' },
-
-            // ===== TIER 3: SPESIFIK - GAMEPLAY (8) =====
-            '.howto':     { filter: t => matchTopic(t, ['cara main', 'how to play']), judul: '📖 Cara Main PELITA' },
-            '.hint':      { filter: t => matchTopic(t, ['hint', 'bantuan', 'clue', 'stuck']), judul: '💡 Hint Per Babak' },
-            '.bintang':   { filter: t => matchTopic(t, ['sistem bintang', 'bintang pelita', 'skor']), judul: '⭐ Sistem Bintang' },
-            '.ending':    { filter: t => matchTopic(t, ['ending', 'penutup', 'akhir']), judul: '🎬 Ending PELITA' },
-            '.easteregg': { filter: t => matchTopic(t, ['easter egg', 'rahasia', 'secret']), judul: '🥚 Easter Egg & Rahasia' },
-            '.lore':      { filter: t => matchTopic(t, ['lore', 'backstory', 'cerita latar']), judul: '📖 Lore & Cerita' },
-            '.trivia':    { filter: t => matchTopic(t, ['trivia', 'fakta unik']), judul: '🎯 Trivia & Fakta' },
-            '.speedrun':  { filter: t => matchTopic(t, ['speedrun', 'cepet tamat']), judul: '🏃 Speedrun Tips' },
-
-            // ===== TIER 3: SPESIFIK - TEKNIS (8) =====
-            '.html':    { filter: t => matchTopic(t, ['html']), judul: '📄 HTML di PELITA' },
-            '.css':     { filter: t => matchTopic(t, ['css']), judul: '🎨 CSS di PELITA' },
-            '.js':      { filter: t => matchTopic(t, ['javascript', 'vanilla js']), judul: '⚙️ JavaScript di PELITA' },
-            '.github':  { filter: t => matchTopic(t, ['github', 'repo', 'deploy']), judul: '🐙 GitHub Repo' },
-            '.vercel':  { filter: t => matchTopic(t, ['vercel', 'hosting']), judul: '⚡ Hosting Vercel' },
-            '.privacy': { filter: t => matchTopic(t, ['privasi', 'privacy', 'data pengguna']), judul: '🔒 Privasi Pengguna' },
-            '.bug':     { filter: t => matchTopic(t, ['bug', 'lapor bug', 'error']), judul: '🐛 Lapor Bug' },
-            '.faq':     { filter: t => matchTopic(t, ['faq', 'pertanyaan umum']), judul: '❓ FAQ' },
-
-            // ===== TIER 3: SPESIFIK - LAINNYA (10) =====
-            '.semar':        { filter: t => matchTopic(t, ['semar', 'pemenang lkip']), judul: '🏆 Game SEMAR (Juara LKIP 2025)' },
-            '.sdgs':         { filter: t => matchTopic(t, ['sdgs', 'sustainable development', 'sdg']), judul: '🌍 Kaitan dengan SDGs' },
-            '.generasi2045': { filter: t => matchTopic(t, ['generasi emas 2045', 'indonesia emas']), judul: '🌟 Generasi Emas 2045' },
-            '.credits':      { filter: t => matchTopic(t, ['kredit', 'credit', 'thanks to']), judul: '🙏 Kredit & Thanks' },
-            '.feedback':     { filter: t => matchTopic(t, ['feedback', 'saran', 'masukan']), judul: '💌 Kirim Feedback' },
-            '.collab':       { filter: t => matchTopic(t, ['kolaborasi', 'kerjasama', 'partnership']), judul: '🤝 Kolaborasi' },
-            '.donate':       { filter: t => matchTopic(t, ['donasi', 'sponsor', 'crowd funding']), judul: '💚 Donasi & Sponsor' },
-            '.version':      { filter: t => matchTopic(t, ['versi', 'changelog', 'update']), judul: '📅 Versi & Changelog' },
-            '.makanan':      { filter: t => matchTopic(t, ['gizi', 'sarapan', 'camilan', 'minuman', 'makanan']), judul: '🍽️ Gizi & Makanan' },
-            '.kisah':        { filter: t => matchTopic(t, ['lore', 'cerita latar', 'backstory']), judul: '📖 Lore & Kisah' }
+            '.vaksin':   { filter: t => matchTopic(t, ['vaksin', 'imunisasi', 'herd immunity']), judul: '💉 Vaksinasi' },
+            '.p3k':      { filter: t => matchTopic(t, ['p3k', 'pertolongan pertama', 'first aid', 'cpr']), judul: '🩹 P3K' },
+            '.howto':    { filter: t => matchTopic(t, ['cara main', 'how to play']), judul: '📖 Cara Main' },
+            '.hint':     { filter: t => matchTopic(t, ['hint', 'bantuan', 'clue', 'stuck']), judul: '💡 Hint Per Babak' },
+            '.bintang':  { filter: t => matchTopic(t, ['sistem bintang', 'bintang pelita', 'skor']), judul: '⭐ Sistem Bintang' },
+            '.ending':   { filter: t => matchTopic(t, ['ending', 'penutup', 'akhir']), judul: '🎬 Ending PELITA' },
+            '.easteregg':{ filter: t => matchTopic(t, ['easter egg', 'rahasia', 'secret']), judul: '🥚 Easter Egg' },
+            '.lore':     { filter: t => matchTopic(t, ['lore', 'backstory', 'cerita latar']), judul: '📖 Lore & Cerita' },
+            '.trivia':   { filter: t => matchTopic(t, ['trivia', 'fakta unik']), judul: '🎯 Trivia' },
+            '.html':     { filter: t => matchTopic(t, ['html']), judul: '📄 HTML' },
+            '.css':      { filter: t => matchTopic(t, ['css']), judul: '🎨 CSS' },
+            '.js':       { filter: t => matchTopic(t, ['javascript', 'vanilla js']), judul: '⚙️ JavaScript' },
+            '.github':   { filter: t => matchTopic(t, ['github', 'repo', 'deploy']), judul: '🐙 GitHub' },
+            '.vercel':   { filter: t => matchTopic(t, ['vercel', 'hosting']), judul: '⚡ Vercel' },
+            '.privacy':  { filter: t => matchTopic(t, ['privasi', 'privacy', 'data pengguna']), judul: '🔒 Privasi' },
+            '.bug':      { filter: t => matchTopic(t, ['bug', 'lapor bug', 'error']), judul: '🐛 Lapor Bug' },
+            '.faq':      { filter: t => matchTopic(t, ['faq', 'pertanyaan umum']), judul: '❓ FAQ' },
+            '.lkip':     { filter: t => matchTopic(t, ['lkip', 'lomba', 'kompetisi', 'juara']), judul: '🏆 LKIP 2026' },
+            '.semar':    { filter: t => matchTopic(t, ['semar', 'pemenang lkip']), judul: '🏆 Game SEMAR' },
+            '.sdgs':     { filter: t => matchTopic(t, ['sdgs', 'sustainable development', 'sdg']), judul: '🌍 SDGs' },
+            '.generasi2045':{ filter: t => matchTopic(t, ['generasi emas 2045', 'indonesia emas']), judul: '🌟 Generasi Emas 2045' },
+            '.credits':  { filter: t => matchTopic(t, ['kredit', 'credit', 'thanks to']), judul: '🙏 Kredit & Thanks' },
+            '.feedback': { filter: t => matchTopic(t, ['feedback', 'saran', 'masukan']), judul: '💌 Feedback' },
+            '.collab':   { filter: t => matchTopic(t, ['kolaborasi', 'kerjasama', 'partnership']), judul: '🤝 Kolaborasi' },
+            '.donate':   { filter: t => matchTopic(t, ['donasi', 'sponsor', 'crowd funding']), judul: '💚 Donasi' },
+            '.version':  { filter: t => matchTopic(t, ['versi', 'changelog', 'update']), judul: '📅 Versi' },
+            '.curhat':   { filter: t => matchTopic(t, ['curhat', 'sedih', 'galau', 'overthinking', 'mental']), judul: '💙 Curhat & Mental Health' },
+            '.tips':     { filter: t => matchTopic(t, ['tips', 'saran', 'rekomendasi']), judul: '📌 Tips & Saran' },
+            '.english':  { filter: t => matchTopic(t, ['english', 'english version', 'glossary']), judul: '🇬🇧 English Version' },
+            '.glossary': { filter: t => matchTopic(t, ['istilah', 'glossary']), judul: '📖 Daftar Istilah' },
+            '.ai':       { filter: t => matchTopic(t, ['ai', 'chatbot', 'nlp', 'llm']), judul: '🤖 Chatbot AI' },
+            '.fun':      { filter: t => matchTopic(t, ['lucu', 'jokes', 'easter egg', 'trivia', 'quote', 'motivasi']), judul: '🎉 Fun & Easter Egg' },
+            '.makanan':  { filter: t => matchTopic(t, ['gizi', 'sarapan', 'camilan', 'minuman', 'makanan']), judul: '🍽️ Gizi & Makanan' }
         };
 
-        // ============ TAMPILKAN MENU COMMAND ============
+        // ============ SHOW SUGGESTION PANEL ============
+        function showSuggestion() {
+            // Group by tier
+            const tiers = {};
+            COMMANDS_META.forEach(c => {
+                if (!tiers[c.tier]) tiers[c.tier] = [];
+                tiers[c.tier].push(c);
+            });
+            
+            let html = '';
+            Object.keys(tiers).forEach(tier => {
+                html += `<div class="sugg-category">${tier}</div>`;
+                tiers[tier].forEach(item => {
+                    const safe = item.cmd.replace(/'/g, "\\'");
+                    html += `<div class="sugg-item" onclick="pilihSuggestion('${safe}')">
+                        <div class="sugg-icon">💬</div>
+                        <div class="sugg-text">
+                            <b>${item.cmd}</b>
+                            <span class="sugg-desc">${item.desc}</span>
+                        </div>
+                    </div>`;
+                });
+            });
+            
+            suggBody.innerHTML = html;
+            suggPanel.classList.add('show');
+        }
+
+        function tutupSuggestion() {
+            suggPanel.classList.remove('show');
+        }
+
+        // ============ HANDLE INPUT (DETEKSI TITIK) ============
+        function handleInput(e) {
+            const val = e.target.value;
+            if (val === '.' || val.endsWith('.') || val.match(/^\.\w*$/)) {
+                showSuggestion();
+            } else {
+                // Kalau udah bukan command lagi, tutup panel
+                if (!val.startsWith('.')) tutupSuggestion();
+            }
+        }
+
+        // ============ PILIH SUGGESTION ============
+        window.pilihSuggestion = function(cmd) {
+            inputEl.value = cmd;
+            tutupSuggestion();
+            sendChat(); // Langsung kirim
+        };
+
+        // ============ TAMPILKAN MENU TOPIK (dari command) ============
         function tampilkanMenu(filterFn, judul) {
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
                 return `<div class="msg-bot">⚠️ Knowledge base belum ke-load. Cek Console (F12).</div>`;
@@ -275,131 +478,49 @@
             
             const unique = [...new Set(topics)].slice(0, 40);
             
-            let html = `<div class="msg-menu"><b>📚 ${judul} (${unique.length} topik, klik salah satu):</b>`;
+            let html = `<div class="msg-bot"><b>📚 ${judul} (${unique.length} topik):</b><br>`;
             unique.forEach(t => {
                 const safe = String(t).replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                html += `<code onclick="kirimCepat('${safe}')">${t}</code>`;
+                html += `<code onclick="kirimCepat('${safe}')" style="cursor:pointer; margin: 3px 2px 0 0; display:inline-block;">${t}</code>`;
             });
             html += `</div>`;
             return html;
         }
 
-        // ============ HELP MENU ============
-        function tampilkanHelp() {
-            return `<div class="msg-menu">
-                <b>📖 DAFTAR COMMAND PELITA BOT</b>
-                
-                <div class="section">🔹 UTAMA</div>
-                <code onclick="kirimCepat('.menu')">.menu</code>
-                <code onclick="kirimCepat('.about')">.about</code>
-                <code onclick="kirimCepat('.play')">.play</code>
-                <code onclick="kirimCepat('.contact')">.contact</code>
-                <code onclick="kirimCepat('.creator')">.creator</code>
-                <code onclick="kirimCepat('.okta')">.okta</code>
-                
-                <div class="section">🔹 INFO</div>
-                <code onclick="kirimCepat('.info')">.info</code>
-                <code onclick="kirimCepat('.gameplay')">.gameplay</code>
-                <code onclick="kirimCepat('.chapters')">.chapters</code>
-                <code onclick="kirimCepat('.characters')">.characters</code>
-                <code onclick="kirimCepat('.health')">.health</code>
-                <code onclick="kirimCepat('.research')">.research</code>
-                <code onclick="kirimCepat('.philosophy')">.philosophy</code>
-                
-                <div class="section">🔹 KESEHATAN</div>
-                <code onclick="kirimCepat('.obat')">.obat</code>
-                <code onclick="kirimCepat('.sanitasi')">.sanitasi</code>
-                <code onclick="kirimCepat('.gizi')">.gizi</code>
-                <code onclick="kirimCepat('.hoaks')">.hoaks</code>
-                <code onclick="kirimCepat('.mental')">.mental</code>
-                <code onclick="kirimCepat('.gempa')">.gempa</code>
-                <code onclick="kirimCepat('.tbc')">.tbc</code>
-                <code onclick="kirimCepat('.rujukan')">.rujukan</code>
-                <code onclick="kirimCepat('.vaksin')">.vaksin</code>
-                <code onclick="kirimCepat('.p3k')">.p3k</code>
-                
-                <div class="section">🔹 GAMEPLAY</div>
-                <code onclick="kirimCepat('.howto')">.howto</code>
-                <code onclick="kirimCepat('.hint')">.hint</code>
-                <code onclick="kirimCepat('.bintang')">.bintang</code>
-                <code onclick="kirimCepat('.ending')">.ending</code>
-                <code onclick="kirimCepat('.easteregg')">.easteregg</code>
-                <code onclick="kirimCepat('.lore')">.lore</code>
-                <code onclick="kirimCepat('.trivia')">.trivia</code>
-                <code onclick="kirimCepat('.speedrun')">.speedrun</code>
-                
-                <div class="section">🔹 TEKNIS</div>
-                <code onclick="kirimCepat('.tech')">.tech</code>
-                <code onclick="kirimCepat('.html')">.html</code>
-                <code onclick="kirimCepat('.css')">.css</code>
-                <code onclick="kirimCepat('.js')">.js</code>
-                <code onclick="kirimCepat('.github')">.github</code>
-                <code onclick="kirimCepat('.vercel')">.vercel</code>
-                <code onclick="kirimCepat('.privacy')">.privacy</code>
-                <code onclick="kirimCepat('.bug')">.bug</code>
-                <code onclick="kirimCepat('.faq')">.faq</code>
-                
-                <div class="section">🔹 LAINNYA</div>
-                <code onclick="kirimCepat('.lkip')">.lkip</code>
-                <code onclick="kirimCepat('.semar')">.semar</code>
-                <code onclick="kirimCepat('.sdgs')">.sdgs</code>
-                <code onclick="kirimCepat('.generasi2045')">.generasi2045</code>
-                <code onclick="kirimCepat('.credits')">.credits</code>
-                <code onclick="kirimCepat('.feedback')">.feedback</code>
-                <code onclick="kirimCepat('.collab')">.collab</code>
-                <code onclick="kirimCepat('.donate')">.donate</code>
-                <code onclick="kirimCepat('.version')">.version</code>
-                <code onclick="kirimCepat('.curhat')">.curhat</code>
-                <code onclick="kirimCepat('.tips')">.tips</code>
-                <code onclick="kirimCepat('.english')">.english</code>
-                <code onclick="kirimCepat('.glossary')">.glossary</code>
-                <code onclick="kirimCepat('.ai')">.ai</code>
-                <code onclick="kirimCepat('.fun')">.fun</code>
-                <code onclick="kirimCepat('.makanan')">.makanan</code>
-                
-                <br><i style="font-size:11px; color:#666;">💡 Atau tanya langsung apa aja soal PELITA!</i>
-            </div>`;
-        }
-
         window.kirimCepat = function(text) {
-            document.getElementById('ai-chat-input').value = text;
+            inputEl.value = text;
             sendChat();
         };
 
-        // ============ SMART MATCHING (FULL REPLY) ============
+        // ============ SMART MATCHING ============
         function findBestReply(userInput) {
             const cmd = userInput.toLowerCase().trim();
 
-            // Command handler
             if (COMMANDS[cmd]) {
                 const c = COMMANDS[cmd];
                 return { type: 'menu', filter: c.filter, judul: c.judul };
             }
             
-            // Help
-            if (cmd === '.help' || cmd === 'help' || cmd === 'bantuan' || cmd === '.bantuan' || cmd === '.h') {
+            if (cmd === '.help' || cmd === 'help' || cmd === 'bantuan') {
                 return { type: 'help' };
             }
             
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load.<br>Coba hard refresh: <b>Ctrl + Shift + R</b>" };
+                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load.<br>Hard refresh: <b>Ctrl + Shift + R</b>" };
             }
 
             const input = cmd;
             
-            // Sapaan
             const sapaan = ['halo', 'hai', 'hi', 'hey', 'assalam', 'pagi', 'siang', 'sore', 'malam'];
             if (sapaan.some(s => input === s || input.startsWith(s + ' ')) && input.length < 20) {
-                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA.<br><br>Ketik <code>.help</code> buat liat semua command, atau tanya apa aja." };
+                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA.<br><br>Ketik <code>.</code> buat buka menu, atau tanya apa aja." };
             }
             
-            // Makasih
             if (input.includes('makasih') || input.includes('terima kasih') || 
                 input.includes('thanks') || input.includes('thx') || input === 'tq') {
                 return { type: 'text', reply: "Sama-sama! 😊 Senang bisa bantu." };
             }
 
-            // Matching bebas
             let bestMatch = null;
             let bestScore = 0;
 
@@ -445,14 +566,27 @@
             return { type: 'nomatch' };
         }
 
+        // ============ HELP ============
+        function tampilkanHelp() {
+            let html = `<div class="msg-bot"><b>📖 Cara pakai:</b><br><br>
+                • Ketik <code>.</code> (titik) buat buka menu saran<br>
+                • Pilih topik dari panel, atau klik command di bawah<br><br>
+                <b>Command utama:</b><br>`;
+            COMMANDS_META.slice(0, 12).forEach(c => {
+                html += `<code onclick="kirimCepat('${c.cmd}')" style="cursor:pointer; margin: 3px 2px 0 0; display:inline-block;">${c.cmd}</code>`;
+            });
+            html += `<br><br><i style="font-size:12px; color:#666;">💡 Ketik <code>.menu</code> buat liat semua topik.</i></div>`;
+            return html;
+        }
+
         // ============ SEND CHAT ============
         window.sendChat = function() {
-            const inputEl = document.getElementById('ai-chat-input');
             const input = inputEl.value.trim();
             if (!input) return;
 
             messages.innerHTML += `<div class="msg-user">${input.replace(/</g, '&lt;')}</div>`;
             inputEl.value = '';
+            tutupSuggestion();
 
             const result = findBestReply(input);
 
@@ -462,13 +596,20 @@
                 } else if (result.type === 'help') {
                     messages.innerHTML += tampilkanHelp();
                 } else if (result.type === 'nomatch') {
-                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham. 🤔<br><br>Ketik <code>.help</code> buat liat semua command, atau <code>.menu</code> buat liat topik.</div>`;
+                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham. 🤔<br><br>Ketik <code>.</code> buat liat menu, atau <code>.menu</code> buat liat topik.</div>`;
                 } else {
                     messages.innerHTML += `<div class="msg-bot">${result.reply}</div>`;
                 }
                 messages.scrollTop = messages.scrollHeight;
             }, 200);
         };
+
+        // Klik di luar panel = tutup
+        document.addEventListener('click', (e) => {
+            if (!suggPanel.contains(e.target) && e.target !== inputEl) {
+                tutupSuggestion();
+            }
+        });
     </script>
 </body>
 </html>
