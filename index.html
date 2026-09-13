@@ -1,26 +1,356 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" itemscope itemtype="https://schema.org/WebSite">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ============================================ -->
+    <!-- GOOGLE SITE VERIFICATION -->
+    <!-- ============================================ -->
     <meta name="google-site-verification" content="JBBlfe5CvQKoZZo7eZkH7J_iUpLR6q13f9kTqQYnEWY" />
-    <title>PELITA – Penerang Literasi Kesehatan Nusantara</title>
-    <meta name="description" content="PELITA adalah game edukasi interaktif berbasis web untuk meningkatkan literasi kesehatan remaja melalui 12 indikator WHO." />
-    <meta name="keywords" content="PELITA, game edukasi, literasi kesehatan, 12 indikator WHO, Nakula, Sadewa, Fauzan, LKIP" />
-    <meta name="author" content="Fauzan" />
+    
+    <!-- ============================================ -->
+    <!-- PRIMARY META TAGS (SEO INTI) -->
+    <!-- ============================================ -->
+    <title>PELITA – Game Edukasi Literasi Kesehatan Remaja | 12 Indikator WHO</title>
+    <meta name="description" content="PELITA: Game edukasi interaktif berbasis web untuk literasi kesehatan remaja. Mengajarkan 12 indikator WHO melalui cerita wayang Nakula & Sadewa. Gratis, tanpa instalasi." />
+    <meta name="keywords" content="PELITA, game edukasi kesehatan, literasi kesehatan remaja, 12 indikator WHO, game wayang, Nakula Sadewa, game edukasi Indonesia, Fauzan, LKIP 2026, game kesehatan remaja" />
+    <meta name="author" content="Muhamad Fauzan Riyadi Irham">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="language" content="Indonesian">
+    <meta name="geo.region" content="ID-JK">
+    <meta name="geo.placename" content="Ciputat, Tangerang Selatan">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- ============================================ -->
+    <!-- CANONICAL & ALTERNATE -->
+    <!-- ============================================ -->
+    <link rel="canonical" href="https://pelita2026.vercel.app/" />
+    <link rel="alternate" hreflang="id-ID" href="https://pelita2026.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://pelita2026.vercel.app/" />
+    <link rel="amphtml" href="https://pelita2026.vercel.app/amp" />
+    
+    <!-- ============================================ -->
+    <!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
+    <!-- ============================================ -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PELITA">
+    <meta property="og:title" content="PELITA – Game Edukasi Literasi Kesehatan Remaja">
+    <meta property="og:description" content="Game edukasi interaktif yang mengajarkan 12 indikator kesehatan WHO melalui cerita wayang Nakula & Sadewa. Gratis, tanpa instalasi.">
+    <meta property="og:url" content="https://pelita2026.vercel.app/">
+    <meta property="og:image" content="https://pelita2026.vercel.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="PELITA - Game Edukasi Literasi Kesehatan">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- ============================================ -->
+    <!-- TWITTER CARD -->
+    <!-- ============================================ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pensisruSMATN">
+    <meta name="twitter:creator" content="@mhzdifzzn65">
+    <meta name="twitter:title" content="PELITA – Game Edukasi Literasi Kesehatan Remaja">
+    <meta name="twitter:description" content="Game edukasi interaktif 12 indikator kesehatan WHO untuk remaja Indonesia.">
+    <meta name="twitter:image" content="https://pelita2026.vercel.app/og-image.png">
+    
+    <!-- ============================================ -->
+    <!-- FAVICON & APP ICONS -->
+    <!-- ============================================ -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <meta property="og:title" content="PELITA – Penerang Literasi Kesehatan Nusantara" />
-    <meta property="og:image" content="https://pelita2026.vercel.app/og-image.png" />
-    <meta property="og:url" content="https://pelita2026.vercel.app/" />
-    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2E8B57">
+    <meta name="msapplication-TileColor" content="#2E8B57">
+    
+    <!-- ============================================ -->
+    <!-- PRELOAD & PRECONNECT (Performa) -->
+    <!-- ============================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://pelita-game.vercel.app">
+    <link rel="preload" as="image" href="page1.png">
+    
+    <!-- ============================================ -->
+    <!-- SITEMAP & RSS -->
+    <!-- ============================================ -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="PELITA RSS" href="/rss.xml" />
+    
+    <!-- ============================================ -->
+    <!-- FONTS & ICONS -->
+    <!-- ============================================ -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ============================================ -->
+    <!-- JSON-LD SCHEMA (UNTUK GOOGLE SGE) -->
+    <!-- ============================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://pelita2026.vercel.app/#website",
+          "url": "https://pelita2026.vercel.app/",
+          "name": "PELITA",
+          "alternateName": ["Penerang Literasi Kesehatan", "PELITA Game"],
+          "description": "Game edukasi literasi kesehatan untuk remaja Indonesia",
+          "inLanguage": "id-ID",
+          "publisher": {
+            "@id": "https://pelita2026.vercel.app/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://pelita2026.vercel.app/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://pelita2026.vercel.app/#organization",
+          "name": "PELITA",
+          "url": "https://pelita2026.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://pelita2026.vercel.app/favicon.png",
+            "width": 512,
+            "height": 512
+          },
+          "founder": {
+            "@type": "Person",
+            "name": "Muhamad Fauzan Riyadi Irham",
+            "jobTitle": "Pengembang Game",
+            "affiliation": {
+              "@type": "EducationalOrganization",
+              "name": "SMP Muhammadiyah 17 Ciputat"
+            }
+          },
+          "foundingDate": "2026",
+          "sameAs": [
+            "https://instagram.com/mhzdifzzn65",
+            "https://github.com/fauzanferi27"
+          ]
+        },
+        {
+          "@type": "VideoGame",
+          "@id": "https://pelita2026.vercel.app/#game",
+          "name": "PELITA – Penerang Literasi Kesehatan",
+          "alternateName": "PELITA Game",
+          "description": "Game edukasi naratif interaktif berbasis web yang mengajarkan 12 indikator literasi kesehatan WHO melalui cerita wayang Nakula dan Sadewa.",
+          "url": "https://pelita-game.vercel.app/",
+          "image": "https://pelita2026.vercel.app/og-image.png",
+          "genre": ["Educational", "Health", "Narrative", "Interactive Fiction"],
+          "gamePlatform": ["Web Browser", "HTML5", "Mobile Web"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Any (Web Browser)",
+          "inLanguage": "id-ID",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "IDR",
+            "availability": "https://schema.org/InStock"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Muhamad Fauzan Riyadi Irham"
+          },
+          "publisher": {
+            "@id": "https://pelita2026.vercel.app/#organization"
+          },
+          "datePublished": "2026-08-01",
+          "dateModified": "2026-09-13",
+          "contentRating": "General",
+          "educationalUse": ["Self Study", "Classroom", "Health Education"],
+          "learningResourceType": ["Game", "Interactive Simulation"],
+          "educationalLevel": ["Middle School", "High School"],
+          "teaches": [
+            "Literasi Obat",
+            "Sanitasi dan ODF",
+            "Gizi dan Anemia",
+            "Literasi Digital dan Hoaks",
+            "Kesehatan Mental",
+            "Kesiapsiagaan Bencana",
+            "Tuberkulosis (TBC)",
+            "Profesi Kesehatan",
+            "Sistem Rujukan",
+            "Aktivitas Fisik",
+            "Vaksinasi dan Herd Immunity",
+            "P3K dan Penanganan Darurat"
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "26",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://pelita2026.vercel.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apa itu PELITA?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PELITA (Penerang Literasi Kesehatan) adalah game edukasi kesehatan berbasis web untuk remaja Indonesia. Game ini mengajarkan 12 indikator literasi kesehatan WHO melalui cerita interaktif dan tokoh wayang Nakula-Sadewa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Siapa yang membuat PELITA?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PELITA dikembangkan oleh Muhamad Fauzan Riyadi Irham, siswa SMP Muhammadiyah 17 Ciputat, dengan bimbingan Bu Okta (guru TIK)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah PELITA gratis?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ya, PELITA 100% gratis. Tidak ada biaya, iklan, atau pembelian dalam game."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Bagaimana cara main PELITA?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Buka link game, baca cerita, pilih jawaban A/B/C, lihat hasilnya, dan lanjut ke babak berikutnya. Selesai 12 babak dalam 20-30 menit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah PELITA perlu instalasi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tidak. PELITA bisa dimainkan langsung lewat browser HP atau komputer tanpa instalasi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah PELITA menyimpan data pengguna?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tidak. PELITA tidak menyimpan data pribadi, tidak ada login, dan tidak menggunakan tracking."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah PELITA boleh dipakai di sekolah lain?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Boleh dan gratis. Cukup cantumkan kredit 'PELITA oleh Fauzan (2026)'."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apa itu 12 indikator literasi kesehatan WHO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "12 indikator literasi kesehatan WHO meliputi: literasi obat, sanitasi dan ODF, gizi dan anemia, literasi digital dan hoaks, kesehatan mental, kesiapsiagaan bencana, tuberkulosis (TBC), profesi kesehatan, sistem rujukan, aktivitas fisik, vaksinasi dan herd immunity, serta P3K dan penanganan darurat."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://pelita2026.vercel.app/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://pelita2026.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Game PELITA",
+              "item": "https://pelita-game.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Tentang",
+              "item": "https://pelita2026.vercel.app/#profile"
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "@id": "https://pelita2026.vercel.app/#howto",
+          "name": "Cara Main PELITA",
+          "description": "Panduan memainkan game edukasi PELITA",
+          "totalTime": "PT30M",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Baca Cerita",
+              "text": "Baca cerita di setiap babak dengan teliti."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Pilih Jawaban",
+              "text": "Pilih jawaban A, B, atau C sesuai pemahamanmu."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Lihat Hasil",
+              "text": "Lihat apakah jawabanmu benar atau salah."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Dapat Bintang",
+              "text": "Jawaban benar mendapat 1 bintang. Salah tidak mengurangi bintang."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 5,
+              "name": "Baca Tips",
+              "text": "Baca tips kesehatan di akhir setiap babak."
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
     <style>
         :root { --hijau: #2E8B57; --krem: #FFF8DC; --emas: #D4AF37; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Nunito', sans-serif; background: var(--hijau); overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Nunito', sans-serif; 
+            background: var(--hijau); 
+            overflow-x: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .img-section { position: relative; width: 100%; border-radius: 20px; overflow: hidden; background: #fff; margin-bottom: 20px; }
+        .img-section img { width: 100%; height: auto; display: block; pointer-events: none; -webkit-user-drag: none; -webkit-touch-callout: none; user-select: none; }
+        .img-section::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: transparent; z-index: 1; }
+        .img-section::before { content: '© PELITA 2026'; position: absolute; bottom: 8px; right: 12px; font-size: 11px; color: rgba(255, 255, 255, 0.6); font-weight: 700; z-index: 2; pointer-events: none; text-shadow: 0 0 4px rgba(0,0,0,0.5); }
+
         .floating-header { position: fixed; top: 20px; right: 20px; z-index: 9999; }
         .hamburger { width: 50px; height: 50px; background: #fff; border: 2px solid var(--emas); border-radius: 50%; cursor: pointer; font-size: 1.5rem; color: var(--hijau); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .nav-dropdown { position: absolute; top: 60px; right: 0; background: #fff; border-radius: 10px; padding: 10px; width: 200px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -28,123 +358,86 @@
         .nav-dropdown button, .nav-dropdown a { display: block; width: 100%; padding: 10px; background: none; border: none; text-align: left; cursor: pointer; font-family: inherit; font-weight: 700; color: #333; text-decoration: none; border-radius: 6px; }
         .nav-dropdown button:hover, .nav-dropdown a:hover { background: #f0f0f0; }
         .container-website { max-width: 900px; margin: 0 auto; padding: 20px; }
-        .img-section { width: 100%; border-radius: 20px; overflow: hidden; background: #fff; margin-bottom: 20px; }
-        .img-section img { width: 100%; height: auto; display: block; }
         .seo-intro { text-align: center; background: var(--krem); padding: 20px; border-radius: 20px; margin-bottom: 20px; color: #333; }
+        .seo-intro h1 { color: var(--hijau); font-size: 1.5em; margin-bottom: 8px; }
         .halaman { display: none; }
         .halaman.active { display: block; }
 
-        /* ===== AI CHAT ===== */
+        /* FORM */
+        .feedback-section { background: var(--krem); padding: 30px 25px; border-radius: 20px; margin-bottom: 20px; border: 2px solid var(--emas); }
+        .feedback-section h2 { color: var(--hijau); text-align: center; margin-bottom: 8px; font-size: 1.5em; }
+        .feedback-section .subtitle { text-align: center; color: #666; font-size: 0.9em; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; color: var(--hijau); font-weight: 700; margin-bottom: 6px; font-size: 0.95em; }
+        .form-group label .required { color: #d63384; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid rgba(46, 139, 87, 0.3); border-radius: 10px; font-family: inherit; font-size: 0.95em; background: #fff; color: #333; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--hijau); box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15); }
+        .form-group textarea { min-height: 110px; resize: vertical; }
+        .btn-submit { width: 100%; padding: 14px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; border: none; border-radius: 12px; font-size: 1.05em; font-weight: 700; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35); }
+        .btn-submit svg { width: 20px; height: 20px; fill: white; }
+        .char-counter { text-align: right; color: #999; font-size: 0.8em; margin-top: 4px; }
+        .char-counter.warning { color: #ffc107; }
+        .char-counter.danger { color: #d63384; }
+
+        /* LEGAL */
+        .legal-section { background: var(--krem); padding: 40px 25px; border-radius: 20px; margin: 30px 0 20px 0; border: 2px solid var(--emas); }
+        .legal-tabs { display: flex; gap: 8px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
+        .legal-tab-btn { background: #fff; color: var(--hijau); border: 2px solid rgba(46, 139, 87, 0.3); padding: 10px 20px; border-radius: 10px; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.95em; transition: all 0.2s; }
+        .legal-tab-btn:hover { background: rgba(46, 139, 87, 0.1); }
+        .legal-tab-btn.active { background: var(--hijau); color: #fff; border-color: var(--hijau); }
+        .legal-content { display: none; animation: fadeIn 0.3s; }
+        .legal-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .legal-content h3 { color: var(--hijau); margin: 20px 0 10px 0; font-size: 1.1em; padding-left: 12px; border-left: 4px solid var(--emas); }
+        .legal-content h3:first-child { margin-top: 0; }
+        .legal-content p, .legal-content li { color: #333; line-height: 1.7; margin-bottom: 10px; font-size: 0.95em; }
+        .legal-content ul { padding-left: 22px; margin-bottom: 15px; }
+        .legal-content ul li { margin-bottom: 6px; }
+        .legal-content .highlight { background: rgba(46, 139, 87, 0.1); border-left: 4px solid var(--hijau); padding: 12px 16px; border-radius: 8px; margin: 12px 0; }
+        .legal-content .highlight strong { color: var(--hijau); }
+        .legal-content .emergency { background: rgba(214, 51, 132, 0.1); border-left: 4px solid #d63384; padding: 12px 16px; border-radius: 8px; margin: 12px 0; color: #d63384; }
+        .faq-item { background: #fff; border: 1px solid rgba(46, 139, 87, 0.2); border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+        .faq-item:hover { border-color: var(--hijau); box-shadow: 0 4px 12px rgba(46, 139, 87, 0.1); }
+        .faq-q { color: var(--hijau); font-weight: 700; font-size: 1em; display: flex; justify-content: space-between; align-items: center; }
+        .faq-q::after { content: '▼'; font-size: 0.7em; color: #999; transition: transform 0.3s; }
+        .faq-item.open .faq-q::after { transform: rotate(180deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, margin-top 0.3s; color: #555; font-size: 0.95em; line-height: 1.6; }
+        .faq-item.open .faq-a { max-height: 400px; margin-top: 10px; }
+        .legal-footer { text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(46, 139, 87, 0.2); color: #888; font-size: 0.85em; }
+
+        /* AI CHAT */
         #ai-chat-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: var(--emas); border: 4px solid #fff; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.3); transition: transform 0.2s; }
         #ai-chat-btn:hover { transform: scale(1.1); }
         #ai-chat-window { position: fixed; bottom: 90px; right: 20px; z-index: 9999; width: 400px; max-width: 94vw; height: 560px; background: #fff; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
         #ai-chat-header { background: var(--hijau); color: #fff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
         #ai-chat-header button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
         #ai-chat-messages { flex: 1; padding: 12px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 6px; }
-
-        /* ===== SUGGESTION PANEL (BARU) ===== */
-        #suggestion-panel {
-            position: absolute;
-            bottom: 60px;
-            left: 10px;
-            right: 10px;
-            max-height: 320px;
-            background: #fff;
-            border: 2px solid var(--emas);
-            border-radius: 12px;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 10000;
-        }
+        #suggestion-panel { position: absolute; bottom: 60px; left: 10px; right: 10px; max-height: 320px; background: #fff; border: 2px solid var(--emas); border-radius: 12px; box-shadow: 0 -5px 20px rgba(0,0,0,0.15); display: none; flex-direction: column; overflow: hidden; z-index: 10000; }
         #suggestion-panel.show { display: flex; }
-        .sugg-header {
-            background: var(--krem);
-            padding: 8px 12px;
-            font-size: 11px;
-            font-weight: 800;
-            color: var(--hijau);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--emas);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .sugg-header .close-sugg {
-            background: none;
-            border: none;
-            color: var(--hijau);
-            font-size: 14px;
-            cursor: pointer;
-            padding: 0 4px;
-        }
-        .sugg-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 4px;
-        }
-        .sugg-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 13px;
-            color: #333;
-            transition: 0.15s;
-            border-bottom: 1px solid #f0f0f0;
-        }
+        .sugg-header { background: var(--krem); padding: 8px 12px; font-size: 11px; font-weight: 800; color: var(--hijau); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--emas); display: flex; justify-content: space-between; align-items: center; }
+        .sugg-header .close-sugg { background: none; border: none; color: var(--hijau); font-size: 14px; cursor: pointer; padding: 0 4px; }
+        .sugg-body { flex: 1; overflow-y: auto; padding: 4px; }
+        .sugg-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; color: #333; transition: 0.15s; border-bottom: 1px solid #f0f0f0; }
         .sugg-item:last-child { border-bottom: none; }
-        .sugg-item:hover {
-            background: var(--krem);
-        }
-        .sugg-item .sugg-icon {
-            font-size: 16px;
-            width: 24px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-        .sugg-item .sugg-text {
-            flex: 1;
-            line-height: 1.4;
-        }
-        .sugg-item .sugg-text b {
-            color: var(--hijau);
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-        }
-        .sugg-item .sugg-desc {
-            font-size: 11px;
-            color: #888;
-            display: block;
-            margin-top: 1px;
-        }
-        .sugg-category {
-            padding: 6px 10px;
-            font-size: 10px;
-            font-weight: 800;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: #fafafa;
-            margin: 4px 0 2px 0;
-            border-radius: 4px;
-        }
-
-        /* ===== INPUT AREA ===== */
+        .sugg-item:hover { background: var(--krem); }
+        .sugg-item .sugg-icon { font-size: 16px; width: 24px; text-align: center; flex-shrink: 0; }
+        .sugg-item .sugg-text { flex: 1; line-height: 1.4; }
+        .sugg-item .sugg-text b { color: var(--hijau); font-family: 'Courier New', monospace; font-size: 13px; }
+        .sugg-item .sugg-desc { font-size: 11px; color: #888; display: block; margin-top: 1px; }
+        .sugg-category { padding: 6px 10px; font-size: 10px; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 1px; background: #fafafa; margin: 4px 0 2px 0; border-radius: 4px; }
         #ai-chat-input-area { position: relative; padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 6px; background: #fff; }
         #ai-chat-input { flex: 1; padding: 10px 14px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-family: inherit; font-size: 14px; }
         #ai-chat-input:focus { border-color: var(--hijau); }
         #ai-chat-send { background: var(--hijau); color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
-        #ai-chat-send:hover { background: #257045; }
-
-        /* ===== BUBBLE CHAT ===== */
         .msg-user { align-self: flex-end; background: #2E8B57; color: #fff; padding: 10px 14px; border-radius: 16px 16px 0 16px; max-width: 85%; margin-bottom: 4px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
         .msg-bot { align-self: flex-start; background: #fff; border: 1px solid #e0e0e0; padding: 10px 14px; border-radius: 16px 16px 16px 0; max-width: 88%; margin-bottom: 4px; font-size: 14px; line-height: 1.6; color: #333; word-wrap: break-word; }
         .msg-bot code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #d63384; font-family: 'Courier New', monospace; }
+
+        #protect-toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); background: linear-gradient(135deg, #d63384 0%, #ff6b6b 100%); color: white; padding: 30px 40px; border-radius: 20px; font-size: 1.3em; font-weight: 800; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.4); z-index: 99999; opacity: 0; pointer-events: none; transition: all 0.3s ease; line-height: 1.5; max-width: 90vw; }
+        #protect-toast.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        #protect-toast .emoji { font-size: 2em; display: block; margin-bottom: 10px; }
+        #protect-toast .sub { font-size: 0.7em; font-weight: 600; opacity: 0.9; display: block; margin-top: 10px; }
 
         @media (max-width: 600px) {
             .container-website { padding: 10px; }
@@ -152,35 +445,43 @@
             #ai-chat-btn { bottom: 15px; right: 15px; }
             #ai-chat-window { bottom: 85px; right: 10px; height: 78vh; }
             #suggestion-panel { max-height: 40vh; }
+            #protect-toast { font-size: 1em; padding: 22px 26px; }
         }
     </style>
 </head>
 <body>
 
+    <div id="protect-toast">
+        <span class="emoji">😹🤣🥴</span>
+        MAU MALING YA??
+        <span class="sub">(IZIN DULU KALAU MAU AMBIL ASET DISINI)</span>
+    </div>
+
     <header class="floating-header">
-        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
-        <nav class="nav-dropdown" id="navDropdown">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <nav class="nav-dropdown" id="navDropdown" aria-label="Navigasi utama">
             <button data-target="home">🏠 Home</button>
             <button data-target="profile">👤 Profile</button>
             <button data-target="howtoplay">🎮 Cara Main</button>
-            <a href="https://pelita-game.vercel.app/" target="_blank">🚀 Mulai Game</a>
+            <button data-target="feedback">💬 Saran</button>
+            <a href="https://pelita-game.vercel.app/" target="_blank" rel="noopener">🚀 Mulai Game</a>
         </nav>
     </header>
 
-    <main class="container-website">
+    <main class="container-website" itemscope itemtype="https://schema.org/VideoGame">
         <div id="home" class="halaman active">
             <div class="seo-intro">
-                <h1>PELITA – Penerang Literasi Kesehatan</h1>
-                <p>Game edukasi 12 indikator kesehatan WHO untuk remaja Indonesia.</p>
+                <h1 itemprop="name">PELITA – Penerang Literasi Kesehatan</h1>
+                <p itemprop="description">Game edukasi 12 indikator kesehatan WHO untuk remaja Indonesia. Gratis, tanpa instalasi, bisa dimainkan di HP atau komputer.</p>
             </div>
-            <div class="img-section"><img src="page1.png" alt="Header PELITA"></div>
-            <div class="img-section"><img src="page2.png" alt="Body PELITA"></div>
-            <div class="img-section"><img src="page3.png" alt="Footer PELITA"></div>
+            <div class="img-section"><img src="page1.png" alt="PELITA - Game Edukasi Literasi Kesehatan Remaja Indonesia" draggable="false" loading="lazy"></div>
+            <div class="img-section"><img src="page2.png" alt="PELITA - 12 Indikator Kesehatan WHO untuk Remaja" draggable="false" loading="lazy"></div>
+            <div class="img-section"><img src="page3.png" alt="PELITA - Karakter Wayang Nakula dan Sadewa" draggable="false" loading="lazy"></div>
         </div>
         <div id="profile" class="halaman" style="padding-top: 60px;">
-            <div class="img-section"><img src="profile1.png" alt="Profil 1"></div>
-            <div class="img-section"><img src="profile2.png" alt="Profil 2"></div>
-            <div class="img-section"><img src="profile3.png" alt="Profil 3"></div>
+            <div class="img-section"><img src="profile1.png" alt="Profil Pengembang PELITA - Muhamad Fauzan Riyadi Irham" draggable="false" loading="lazy"></div>
+            <div class="img-section"><img src="profile2.png" alt="Latar Belakang Pengembangan PELITA" draggable="false" loading="lazy"></div>
+            <div class="img-section"><img src="profile3.png" alt="Visi dan Misi PELITA" draggable="false" loading="lazy"></div>
         </div>
         <div id="howtoplay" class="halaman" style="padding-top: 60px; background: #fff; border-radius: 20px; padding: 30px;">
             <h2 style="color: #2E8B57; margin-bottom: 12px;">🎮 Cara Main PELITA</h2>
@@ -190,13 +491,107 @@
             <p style="margin-bottom: 10px;">4. Jawaban benar dapat 1 bintang.</p>
             <p style="margin-bottom: 10px;">5. Baca tips kesehatan di akhir babak.</p>
         </div>
+
+        <div id="feedback" class="halaman" style="padding-top: 60px;">
+            <div class="feedback-section">
+                <h2>💬 Saran & Masukan</h2>
+                <p class="subtitle">Bantu kami kembangkan PELITA jadi lebih baik!</p>
+                <form id="feedbackForm" onsubmit="sendToWhatsApp(event)">
+                    <div class="form-group">
+                        <label>Nama / Inisial <span class="required">*</span></label>
+                        <input type="text" id="nama" placeholder="Contoh: Fauzan" required maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori <span class="required">*</span></label>
+                        <select id="kategori" required>
+                            <option value="" disabled selected>-- Pilih Kategori --</option>
+                            <option value="Saran Fitur">🚀 Saran Fitur Baru</option>
+                            <option value="Laporan Bug">🐛 Laporan Bug / Error</option>
+                            <option value="Masukan Konten">📚 Masukan Konten / Materi</option>
+                            <option value="Kolaborasi">🤝 Ajakan Kolaborasi</option>
+                            <option value="Pertanyaan">❓ Pertanyaan</option>
+                            <option value="Lainnya">💬 Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pesan <span class="required">*</span></label>
+                        <textarea id="pesan" placeholder="Tulis saran, masukan, atau pertanyaanmu di sini..." required maxlength="500" oninput="updateCounter()"></textarea>
+                        <div class="char-counter" id="counter">0 / 500</div>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Kirim via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- LEGAL -->
+        <section class="legal-section" id="legal">
+            <h2 style="color: var(--hijau); text-align: center; margin-bottom: 8px; font-size: 1.5em;">📋 Informasi Penting</h2>
+            <p style="text-align: center; color: #666; font-size: 0.9em; margin-bottom: 20px;">Kebijakan, syarat, dan pertanyaan umum</p>
+
+            <div class="legal-tabs">
+                <button class="legal-tab-btn active" onclick="showLegal('privacy', this)">🔒 Privacy</button>
+                <button class="legal-tab-btn" onclick="showLegal('terms', this)">📜 Terms of Use</button>
+                <button class="legal-tab-btn" onclick="showLegal('faq', this)">❓ FAQ</button>
+            </div>
+
+            <div id="privacy" class="legal-content active">
+                <h3>1. Pendahuluan</h3>
+                <p>PELITA ("kami", "situs") menghormati privasi setiap pengunjung. Kebijakan ini menjelaskan bagaimana kami menangani informasi Anda saat mengakses situs PELITA.</p>
+                <h3>2. Informasi yang Kami Kumpulkan</h3>
+                <div class="highlight"><strong>PELITA TIDAK mengumpulkan data pribadi apa pun dari pengguna.</strong></div>
+                <p>Kami tidak meminta:</p>
+                <ul><li>Nama lengkap</li><li>Alamat email</li><li>Nomor telepon</li><li>Alamat rumah</li><li>Data lokasi</li></ul>
+                <h3>3. Cookie dan Pelacakan</h3>
+                <p>PELITA <strong>TIDAK menggunakan cookie</strong> untuk pelacakan. Kami tidak menggunakan Google Analytics atau alat analitik pihak ketiga.</p>
+                <h3>4. Penggunaan AI Chatbot</h3>
+                <p>Obrolan Anda dengan AI: <strong>tidak disimpan</strong>, <strong>tidak dibagikan</strong>, dan <strong>tidak digunakan</strong> untuk keperluan komersial.</p>
+                <h3>5. Keamanan</h3>
+                <p>Situs kami menggunakan HTTPS (koneksi terenkripsi).</p>
+                <h3>6. Kontak</h3>
+                <p>Instagram: <a href="https://instagram.com/mhzdifzzn65" target="_blank" rel="noopener" style="color: var(--hijau); font-weight: 700;">@mhzdifzzn65</a></p>
+            </div>
+
+            <div id="terms" class="legal-content">
+                <h3>1. Penerimaan Syarat</h3>
+                <p>Dengan mengakses PELITA, Anda setuju untuk terikat dengan syarat ini.</p>
+                <h3>2. Penggunaan yang Diizinkan</h3>
+                <ul><li>Keperluan edukasi pribadi</li><li>Media pembelajaran di sekolah</li><li>Penelitian akademik (dengan kredit)</li></ul>
+                <h3>3. Penggunaan yang Dilarang</h3>
+                <ul><li>Mengklaim PELITA sebagai karya sendiri</li><li>Menjual atau mengomersialkan tanpa izin</li><li>Mengubah/menyalin tanpa kredit</li><li>Kegiatan ilegal</li></ul>
+                <h3>4. Hak Kekayaan Intelektual</h3>
+                <p>Hak cipta dimiliki oleh <strong>Muhamad Fauzan Riyadi Irham</strong>.</p>
+                <h3>5. Kredit</h3>
+                <div class="highlight"><strong>"PELITA oleh Fauzan (2026)"</strong></div>
+                <h3>6. Konten Edukasi</h3>
+                <p>Materi bersifat edukasi umum. Bukan pengganti konsultasi medis profesional.</p>
+            </div>
+
+            <div id="faq" class="legal-content">
+                <h3>❓ Pertanyaan Umum</h3>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Apa itu PELITA?</div><div class="faq-a">PELITA (Penerang Literasi Kesehatan) adalah game edukasi kesehatan berbasis web untuk remaja Indonesia yang mengajarkan 12 indikator literasi kesehatan WHO.</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Siapa yang membuat PELITA?</div><div class="faq-a">PELITA dikembangkan oleh Muhamad Fauzan Riyadi Irham, siswa SMP Muhammadiyah 17 Ciputat.</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Apakah PELITA gratis?</div><div class="faq-a">Ya, 100% gratis. Tidak ada biaya, iklan, atau pembelian dalam game.</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Bagaimana cara main PELITA?</div><div class="faq-a">Buka link game, baca cerita, pilih jawaban A/B/C, lihat hasilnya, lanjut babak berikutnya.</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Apakah perlu instalasi?</div><div class="faq-a">Tidak. Cukup buka lewat browser HP atau komputer.</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Apakah data saya disimpan?</div><div class="faq-a">Tidak. PELITA tidak menyimpan data pribadi, tidak ada login, tidak ada tracking.</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Apakah PELITA boleh dipakai di sekolah lain?</div><div class="faq-a">Boleh, gratis. Cukup cantumkan kredit "PELITA oleh Fauzan (2026)".</div></div>
+                <div class="emergency"><strong>⚠️ Darurat Kesehatan Mental?</strong><br>• Kemenkes SEJIWA: 119 ext 8<br>• KPAI: 021-31901556<br>• Yayasan Pulih: 021-78842580</div>
+            </div>
+
+            <div class="legal-footer">
+                © 2026 PELITA oleh Fauzan • <a href="https://instagram.com/mhzdifzzn65" target="_blank" rel="noopener" style="color: var(--hijau); font-weight: 700;">@mhzdifzzn65</a>
+            </div>
+        </section>
     </main>
 
-    <button id="ai-chat-btn">🕯️</button>
-    <div id="ai-chat-window" role="dialog">
+    <button id="ai-chat-btn" aria-label="Buka chat">🕯️</button>
+    <div id="ai-chat-window" role="dialog" aria-label="Chat dengan Asisten PELITA">
         <div id="ai-chat-header">
             <span>🕯️ Asisten PELITA</span>
-            <button id="btn-close-chat">✕</button>
+            <button id="btn-close-chat" aria-label="Tutup">✕</button>
         </div>
         <div id="ai-chat-messages">
             <div class="msg-bot">Halo! 👋 Aku Asisten PELITA.<br><br>Ketik <code>.</code> (titik) buat buka menu saran, atau langsung tanya apa aja soal PELITA.</div>
@@ -215,7 +610,35 @@
     </div>
 
     <script>
-        // ============ NAVIGASI ============
+        // PROTEKSI
+        const protectToast = document.getElementById('protect-toast');
+        let toastTimeout = null;
+        function showProtectToast() {
+            clearTimeout(toastTimeout);
+            protectToast.classList.add('show');
+            toastTimeout = setTimeout(() => protectToast.classList.remove('show'), 2500);
+        }
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.closest('.img-section')) {
+                e.preventDefault(); showProtectToast(); return false;
+            }
+        });
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') { e.preventDefault(); showProtectToast(); return false; }
+        });
+        document.addEventListener('keydown', function(e) {
+            const key = e.key.toLowerCase();
+            if (e.ctrlKey && key === 's') { e.preventDefault(); showProtectToast(); return false; }
+            if (e.ctrlKey && key === 'u') { e.preventDefault(); showProtectToast(); return false; }
+            if (e.ctrlKey && e.shiftKey && key === 'i') { e.preventDefault(); showProtectToast(); return false; }
+            if (e.ctrlKey && e.shiftKey && key === 'j') { e.preventDefault(); showProtectToast(); return false; }
+            if (key === 'f12') { e.preventDefault(); showProtectToast(); return false; }
+        });
+        document.addEventListener('copy', function(e) {
+            if (e.target.tagName === 'IMG') { e.preventDefault(); showProtectToast(); return false; }
+        });
+
+        // NAVIGASI
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const navDropdown = document.getElementById('navDropdown');
         hamburgerBtn.addEventListener('click', (e) => { e.stopPropagation(); navDropdown.classList.toggle('open'); });
@@ -226,13 +649,43 @@
             btn.addEventListener('click', function() {
                 const target = this.getAttribute('data-target');
                 document.querySelectorAll('.halaman').forEach(h => h.classList.remove('active'));
-                const page = document.getElementById(target);
-                if (page) page.classList.add('active');
+                document.getElementById(target)?.classList.add('active');
                 navDropdown.classList.remove('open');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
-        // ============ AI CHAT ============
+        // FORM WA
+        const WA_NUMBER = "6287817343826";
+        window.updateCounter = function() {
+            const pesan = document.getElementById('pesan').value;
+            const counter = document.getElementById('counter');
+            const length = pesan.length;
+            counter.textContent = `${length} / 500`;
+            counter.classList.remove('warning', 'danger');
+            if (length > 450) counter.classList.add('danger');
+            else if (length > 350) counter.classList.add('warning');
+        };
+        window.sendToWhatsApp = function(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value.trim();
+            const kategori = document.getElementById('kategori').value;
+            const pesan = document.getElementById('pesan').value.trim();
+            if (!nama || !kategori || !pesan) { alert('⚠️ Mohon isi semua kolom!'); return; }
+            const waMessage = `*📬 SARAN & MASUKAN PELITA*\n\n👤 *Nama:* ${nama}\n📂 *Kategori:* ${kategori}\n\n💬 *Pesan:*\n${pesan}\n\n---\nDikirim via website PELITA\n📅 ${new Date().toLocaleString('id-ID')}`;
+            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMessage)}`, '_blank');
+        };
+
+        // LEGAL
+        window.showLegal = function(tabId, btn) {
+            document.querySelectorAll('.legal-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.legal-tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        };
+        window.toggleFaq = function(el) { el.classList.toggle('open'); };
+
+        // AI CHAT
         const messages = document.getElementById('ai-chat-messages');
         const btnCloseChat = document.getElementById('btn-close-chat');
         const btnChat = document.getElementById('ai-chat-btn');
@@ -242,10 +695,7 @@
 
         fetch('knowledge.json?v=' + Date.now())
             .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
-            .then(data => {
-                window.allKnowledge = data;
-                console.log(`✅ Loaded ${data.length} topik`);
-            })
+            .then(data => { window.allKnowledge = data; console.log(`✅ Loaded ${data.length} topik`); })
             .catch(err => { console.error("❌ Gagal load:", err); window.allKnowledge = []; });
 
         window.toggleChat = function() {
@@ -256,359 +706,105 @@
         btnChat.addEventListener('click', window.toggleChat);
         btnCloseChat.addEventListener('click', window.toggleChat);
 
-        // ============ COMMAND SUGGESTIONS (HIRARKI 3-TIER) ============
         const COMMANDS_META = [
-            // TIER 1: UTAMA
-            { cmd: '.menu',        desc: 'Semua topik tersedia',           tier: '🔹 UTAMA' },
-            { cmd: '.about',       desc: 'Tentang PELITA',                 tier: '🔹 UTAMA' },
-            { cmd: '.play',        desc: 'Link mainkan PELITA',            tier: '🔹 UTAMA' },
-            { cmd: '.contact',     desc: 'Kontak Fauzan',                  tier: '🔹 UTAMA' },
-            { cmd: '.creator',     desc: 'Profil Fauzan',                  tier: '🔹 UTAMA' },
-            { cmd: '.okta',        desc: 'Info Bu Okta (pembimbing)',      tier: '🔹 UTAMA' },
-            { cmd: '.help',        desc: 'Daftar semua command',           tier: '🔹 UTAMA' },
-
-            // TIER 2: KATEGORI
-            { cmd: '.info',        desc: 'Info umum PELITA',               tier: '📚 INFO' },
-            { cmd: '.gameplay',    desc: 'Gameplay & mekanik',             tier: '📚 INFO' },
-            { cmd: '.chapters',    desc: 'Daftar 12 babak',                tier: '📚 INFO' },
-            { cmd: '.characters',  desc: 'Nakula & Sadewa',                tier: '📚 INFO' },
-            { cmd: '.health',      desc: 'Kesehatan & WHO',                tier: '📚 INFO' },
-            { cmd: '.tech',        desc: 'Teknologi PELITA',               tier: '📚 INFO' },
-            { cmd: '.research',    desc: 'Penelitian & metodologi',        tier: '📚 INFO' },
-            { cmd: '.philosophy',  desc: 'Filosofi & konsep',              tier: '📚 INFO' },
-            
-            // TIER 2: KESEHATAN
-            { cmd: '.obat',        desc: 'Literasi obat',                  tier: '🩺 KESEHATAN' },
-            { cmd: '.sanitasi',    desc: 'Sanitasi & ODF',                 tier: '🩺 KESEHATAN' },
-            { cmd: '.gizi',        desc: 'Gizi & anemia',                  tier: '🩺 KESEHATAN' },
-            { cmd: '.hoaks',       desc: 'Cara lawan hoaks',               tier: '🩺 KESEHATAN' },
-            { cmd: '.mental',      desc: 'Kesehatan mental',               tier: '🩺 KESEHATAN' },
-            { cmd: '.gempa',       desc: 'Kesiapsiagaan bencana',          tier: '🩺 KESEHATAN' },
-            { cmd: '.tbc',         desc: 'Info TBC',                       tier: '🩺 KESEHATAN' },
-            { cmd: '.rujukan',     desc: 'Sistem rujukan',                 tier: '🩺 KESEHATAN' },
-            { cmd: '.vaksin',      desc: 'Vaksinasi & herd immunity',      tier: '🩺 KESEHATAN' },
-            { cmd: '.p3k',         desc: 'Pertolongan pertama',            tier: '🩺 KESEHATAN' },
-
-            // TIER 2: GAMEPLAY
-            { cmd: '.howto',       desc: 'Cara main step-by-step',         tier: '🎮 GAMEPLAY' },
-            { cmd: '.hint',        desc: 'Hint per babak',                 tier: '🎮 GAMEPLAY' },
-            { cmd: '.bintang',     desc: 'Sistem bintang',                 tier: '🎮 GAMEPLAY' },
-            { cmd: '.ending',      desc: 'Info ending',                    tier: '🎮 GAMEPLAY' },
-            { cmd: '.easteregg',   desc: 'Rahasia tersembunyi',            tier: '🎮 GAMEPLAY' },
-            { cmd: '.lore',        desc: 'Cerita latar belakang',          tier: '🎮 GAMEPLAY' },
-            { cmd: '.trivia',      desc: 'Fakta unik',                     tier: '🎮 GAMEPLAY' },
-
-            // TIER 2: TEKNIS
-            { cmd: '.html',        desc: 'HTML di PELITA',                 tier: '💻 TEKNIS' },
-            { cmd: '.css',         desc: 'CSS di PELITA',                  tier: '💻 TEKNIS' },
-            { cmd: '.js',          desc: 'JavaScript di PELITA',           tier: '💻 TEKNIS' },
-            { cmd: '.github',      desc: 'Repo & deploy',                  tier: '💻 TEKNIS' },
-            { cmd: '.vercel',      desc: 'Hosting Vercel',                 tier: '💻 TEKNIS' },
-            { cmd: '.privacy',     desc: 'Privasi pengguna',               tier: '💻 TEKNIS' },
-            { cmd: '.bug',         desc: 'Lapor bug',                      tier: '💻 TEKNIS' },
-            { cmd: '.faq',         desc: 'Pertanyaan umum',                tier: '💻 TEKNIS' },
-
-            // TIER 2: LAINNYA
-            { cmd: '.lkip',        desc: 'Info LKIP 2026',                 tier: '📦 LAINNYA' },
-            { cmd: '.semar',       desc: 'Game SEMAR (Juara LKIP 2025)',   tier: '📦 LAINNYA' },
-            { cmd: '.sdgs',        desc: 'Kaitan dengan SDGs',             tier: '📦 LAINNYA' },
-            { cmd: '.generasi2045',desc: 'Generasi Emas 2045',             tier: '📦 LAINNYA' },
-            { cmd: '.credits',     desc: 'Kredit & thanks',                tier: '📦 LAINNYA' },
-            { cmd: '.feedback',    desc: 'Kirim masukan',                  tier: '📦 LAINNYA' },
-            { cmd: '.collab',      desc: 'Kolaborasi',                     tier: '📦 LAINNYA' },
-            { cmd: '.donate',      desc: 'Info donasi',                    tier: '📦 LAINNYA' },
-            { cmd: '.version',     desc: 'Versi & changelog',              tier: '📦 LAINNYA' },
-            { cmd: '.curhat',      desc: 'Curhat kesehatan mental',        tier: '📦 LAINNYA' },
-            { cmd: '.tips',        desc: 'Tips kesehatan & belajar',       tier: '📦 LAINNYA' },
-            { cmd: '.english',     desc: 'English version',                tier: '📦 LAINNYA' },
-            { cmd: '.glossary',    desc: 'Daftar istilah',                 tier: '📦 LAINNYA' },
-            { cmd: '.ai',          desc: 'Penjelasan AI chatbot',          tier: '📦 LAINNYA' },
-            { cmd: '.fun',         desc: 'Easter egg & jokes',             tier: '📦 LAINNYA' },
-            { cmd: '.makanan',     desc: 'Gizi & makanan',                 tier: '📦 LAINNYA' }
+            { cmd: '.menu', desc: 'Semua topik', tier: '🔹 UTAMA' },
+            { cmd: '.about', desc: 'Tentang PELITA', tier: '🔹 UTAMA' },
+            { cmd: '.play', desc: 'Link mainkan', tier: '🔹 UTAMA' },
+            { cmd: '.contact', desc: 'Kontak Fauzan', tier: '🔹 UTAMA' },
+            { cmd: '.info', desc: 'Info umum', tier: '📚 INFO' },
+            { cmd: '.health', desc: 'Kesehatan & WHO', tier: '📚 INFO' },
+            { cmd: '.tech', desc: 'Teknologi', tier: '📚 INFO' },
+            { cmd: '.obat', desc: 'Literasi obat', tier: '🩺 KESEHATAN' },
+            { cmd: '.sanitasi', desc: 'Sanitasi & ODF', tier: '🩺 KESEHATAN' },
+            { cmd: '.gizi', desc: 'Gizi & anemia', tier: '🩺 KESEHATAN' },
+            { cmd: '.hoaks', desc: 'Lawan hoaks', tier: '🩺 KESEHATAN' },
+            { cmd: '.mental', desc: 'Kesehatan mental', tier: '🩺 KESEHATAN' },
+            { cmd: '.tbc', desc: 'Info TBC', tier: '🩺 KESEHATAN' },
+            { cmd: '.p3k', desc: 'Pertolongan pertama', tier: '🩺 KESEHATAN' },
+            { cmd: '.lore', desc: 'Lore & cerita', tier: '🎮 GAMEPLAY' },
+            { cmd: '.trivia', desc: 'Fakta unik', tier: '🎮 GAMEPLAY' },
+            { cmd: '.curhat', desc: 'Curhat', tier: '📦 LAINNYA' },
+            { cmd: '.tips', desc: 'Tips', tier: '📦 LAINNYA' },
+            { cmd: '.lkip', desc: 'LKIP 2026', tier: '📦 LAINNYA' },
+            { cmd: '.semar', desc: 'Game SEMAR', tier: '📦 LAINNYA' }
         ];
 
-        // Helper: filter topic
-        function hasKeyword(topic, patterns) {
-            if (!topic.keywords) return false;
-            return topic.keywords.some(k => {
-                const kl = k.toLowerCase();
-                return patterns.some(p => kl.includes(p));
-            });
-        }
-        function hasReplyContain(topic, patterns) {
-            if (!topic.replies) return false;
-            return topic.replies.some(r => {
-                const rl = r.toLowerCase();
-                return patterns.some(p => rl.includes(p));
-            });
-        }
-        function matchTopic(topic, patterns) {
-            return hasKeyword(topic, patterns) || hasReplyContain(topic, patterns);
-        }
-
-        // Command filter map
-        const COMMANDS = {
-            '.menu':    { filter: null, judul: '🗂️ Semua Topik' },
-            '.about':   { filter: t => matchTopic(t, ['apa itu pelita', 'tentang pelita', 'pelita itu']), judul: '🕯️ Tentang PELITA' },
-            '.play':    { filter: t => matchTopic(t, ['link pelita', 'mainkan pelita', 'akses game']), judul: '🚀 Mainkan PELITA' },
-            '.contact': { filter: t => matchTopic(t, ['kontak pelita', 'sosmed', 'hubungi']), judul: '📞 Kontak Fauzan' },
-            '.creator': { filter: t => matchTopic(t, ['siapa fauzan', 'profil fauzan', 'pencipta pelita', 'pembuat pelita']), judul: '🧑‍💻 Profil Fauzan' },
-            '.okta':    { filter: t => matchTopic(t, ['bu okta', 'guru pembimbing']), judul: '👩‍🏫 Bu Okta' },
-            '.info':    { filter: t => matchTopic(t, ['apa itu pelita', 'tentang pelita', 'info pelita', 'pelita adalah']), judul: 'ℹ️ Info Umum PELITA' },
-            '.gameplay':{ filter: t => matchTopic(t, ['cara main', 'mekanik', 'gameplay', 'mainnya']), judul: '🎮 Gameplay & Mekanik' },
-            '.chapters':{ filter: t => matchTopic(t, ['babak', 'urutan', 'daftar babak']), judul: '📖 12 Babak PELITA' },
-            '.characters':{ filter: t => matchTopic(t, ['nakula', 'sadewa', 'karakter', 'wayang']), judul: '🎭 Karakter' },
-            '.health':  { filter: t => matchTopic(t, ['kesehatan', 'indikator', 'who', 'data']), judul: '🩺 Kesehatan & WHO' },
-            '.tech':    { filter: t => matchTopic(t, ['html', 'css', 'javascript', 'github', 'vercel', 'coding', 'teknologi']), judul: '💻 Teknologi PELITA' },
-            '.research':{ filter: t => matchTopic(t, ['penelitian', 'riset', 'metode', 'post-test', 'likert']), judul: '🔬 Penelitian' },
-            '.philosophy':{ filter: t => matchTopic(t, ['stealth learning', 'filosofi', 'konsep', 'gamifikasi']), judul: '💭 Filosofi & Konsep' },
-            '.obat':     { filter: t => matchTopic(t, ['literasi obat', 'paracetamol', 'antibiotik', 'obat']), judul: '💊 Literasi Obat' },
-            '.sanitasi': { filter: t => matchTopic(t, ['sanitasi', 'odf', 'jamban', 'cuci tangan']), judul: '🚽 Sanitasi & ODF' },
-            '.gizi':     { filter: t => matchTopic(t, ['gizi', 'anemia', 'nutrisi', 'makanan']), judul: '🥗 Gizi & Anemia' },
-            '.hoaks':    { filter: t => matchTopic(t, ['hoaks', 'hoax', 'disinformasi', 'clickbait']), judul: '📱 Lawan Hoaks' },
-            '.mental':   { filter: t => matchTopic(t, ['kesehatan mental', 'mental health', 'burnout']), judul: '🧠 Kesehatan Mental' },
-            '.gempa':    { filter: t => matchTopic(t, ['gempa', 'bencana', 'tsunami', 'evakuasi']), judul: '🌋 Kesiapsiagaan Bencana' },
-            '.tbc':      { filter: t => matchTopic(t, ['tbc', 'tuberkulosis', 'dots']), judul: '🫁 Info TBC' },
-            '.rujukan':  { filter: t => matchTopic(t, ['rujukan', 'puskesmas', 'bpjs', 'referral']), judul: '🏥 Sistem Rujukan' },
-            '.vaksin':   { filter: t => matchTopic(t, ['vaksin', 'imunisasi', 'herd immunity']), judul: '💉 Vaksinasi' },
-            '.p3k':      { filter: t => matchTopic(t, ['p3k', 'pertolongan pertama', 'first aid', 'cpr']), judul: '🩹 P3K' },
-            '.howto':    { filter: t => matchTopic(t, ['cara main', 'how to play']), judul: '📖 Cara Main' },
-            '.hint':     { filter: t => matchTopic(t, ['hint', 'bantuan', 'clue', 'stuck']), judul: '💡 Hint Per Babak' },
-            '.bintang':  { filter: t => matchTopic(t, ['sistem bintang', 'bintang pelita', 'skor']), judul: '⭐ Sistem Bintang' },
-            '.ending':   { filter: t => matchTopic(t, ['ending', 'penutup', 'akhir']), judul: '🎬 Ending PELITA' },
-            '.easteregg':{ filter: t => matchTopic(t, ['easter egg', 'rahasia', 'secret']), judul: '🥚 Easter Egg' },
-            '.lore':     { filter: t => matchTopic(t, ['lore', 'backstory', 'cerita latar']), judul: '📖 Lore & Cerita' },
-            '.trivia':   { filter: t => matchTopic(t, ['trivia', 'fakta unik']), judul: '🎯 Trivia' },
-            '.html':     { filter: t => matchTopic(t, ['html']), judul: '📄 HTML' },
-            '.css':      { filter: t => matchTopic(t, ['css']), judul: '🎨 CSS' },
-            '.js':       { filter: t => matchTopic(t, ['javascript', 'vanilla js']), judul: '⚙️ JavaScript' },
-            '.github':   { filter: t => matchTopic(t, ['github', 'repo', 'deploy']), judul: '🐙 GitHub' },
-            '.vercel':   { filter: t => matchTopic(t, ['vercel', 'hosting']), judul: '⚡ Vercel' },
-            '.privacy':  { filter: t => matchTopic(t, ['privasi', 'privacy', 'data pengguna']), judul: '🔒 Privasi' },
-            '.bug':      { filter: t => matchTopic(t, ['bug', 'lapor bug', 'error']), judul: '🐛 Lapor Bug' },
-            '.faq':      { filter: t => matchTopic(t, ['faq', 'pertanyaan umum']), judul: '❓ FAQ' },
-            '.lkip':     { filter: t => matchTopic(t, ['lkip', 'lomba', 'kompetisi', 'juara']), judul: '🏆 LKIP 2026' },
-            '.semar':    { filter: t => matchTopic(t, ['semar', 'pemenang lkip']), judul: '🏆 Game SEMAR' },
-            '.sdgs':     { filter: t => matchTopic(t, ['sdgs', 'sustainable development', 'sdg']), judul: '🌍 SDGs' },
-            '.generasi2045':{ filter: t => matchTopic(t, ['generasi emas 2045', 'indonesia emas']), judul: '🌟 Generasi Emas 2045' },
-            '.credits':  { filter: t => matchTopic(t, ['kredit', 'credit', 'thanks to']), judul: '🙏 Kredit & Thanks' },
-            '.feedback': { filter: t => matchTopic(t, ['feedback', 'saran', 'masukan']), judul: '💌 Feedback' },
-            '.collab':   { filter: t => matchTopic(t, ['kolaborasi', 'kerjasama', 'partnership']), judul: '🤝 Kolaborasi' },
-            '.donate':   { filter: t => matchTopic(t, ['donasi', 'sponsor', 'crowd funding']), judul: '💚 Donasi' },
-            '.version':  { filter: t => matchTopic(t, ['versi', 'changelog', 'update']), judul: '📅 Versi' },
-            '.curhat':   { filter: t => matchTopic(t, ['curhat', 'sedih', 'galau', 'overthinking', 'mental']), judul: '💙 Curhat & Mental Health' },
-            '.tips':     { filter: t => matchTopic(t, ['tips', 'saran', 'rekomendasi']), judul: '📌 Tips & Saran' },
-            '.english':  { filter: t => matchTopic(t, ['english', 'english version', 'glossary']), judul: '🇬🇧 English Version' },
-            '.glossary': { filter: t => matchTopic(t, ['istilah', 'glossary']), judul: '📖 Daftar Istilah' },
-            '.ai':       { filter: t => matchTopic(t, ['ai', 'chatbot', 'nlp', 'llm']), judul: '🤖 Chatbot AI' },
-            '.fun':      { filter: t => matchTopic(t, ['lucu', 'jokes', 'easter egg', 'trivia', 'quote', 'motivasi']), judul: '🎉 Fun & Easter Egg' },
-            '.makanan':  { filter: t => matchTopic(t, ['gizi', 'sarapan', 'camilan', 'minuman', 'makanan']), judul: '🍽️ Gizi & Makanan' }
-        };
-
-        // ============ SHOW SUGGESTION PANEL ============
         function showSuggestion() {
-            // Group by tier
             const tiers = {};
-            COMMANDS_META.forEach(c => {
-                if (!tiers[c.tier]) tiers[c.tier] = [];
-                tiers[c.tier].push(c);
-            });
-            
+            COMMANDS_META.forEach(c => { if (!tiers[c.tier]) tiers[c.tier] = []; tiers[c.tier].push(c); });
             let html = '';
             Object.keys(tiers).forEach(tier => {
                 html += `<div class="sugg-category">${tier}</div>`;
                 tiers[tier].forEach(item => {
                     const safe = item.cmd.replace(/'/g, "\\'");
-                    html += `<div class="sugg-item" onclick="pilihSuggestion('${safe}')">
-                        <div class="sugg-icon">💬</div>
-                        <div class="sugg-text">
-                            <b>${item.cmd}</b>
-                            <span class="sugg-desc">${item.desc}</span>
-                        </div>
-                    </div>`;
+                    html += `<div class="sugg-item" onclick="pilihSuggestion('${safe}')"><div class="sugg-icon">💬</div><div class="sugg-text"><b>${item.cmd}</b><span class="sugg-desc">${item.desc}</span></div></div>`;
                 });
             });
-            
             suggBody.innerHTML = html;
             suggPanel.classList.add('show');
         }
-
-        function tutupSuggestion() {
-            suggPanel.classList.remove('show');
-        }
-
-        // ============ HANDLE INPUT (DETEKSI TITIK) ============
+        function tutupSuggestion() { suggPanel.classList.remove('show'); }
         function handleInput(e) {
             const val = e.target.value;
-            if (val === '.' || val.endsWith('.') || val.match(/^\.\w*$/)) {
-                showSuggestion();
-            } else {
-                // Kalau udah bukan command lagi, tutup panel
-                if (!val.startsWith('.')) tutupSuggestion();
-            }
+            if (val === '.' || val.endsWith('.') || val.match(/^\.\w*$/)) { showSuggestion(); }
+            else { if (!val.startsWith('.')) tutupSuggestion(); }
         }
+        window.pilihSuggestion = function(cmd) { inputEl.value = cmd; tutupSuggestion(); sendChat(); };
+        window.kirimCepat = function(text) { inputEl.value = text; sendChat(); };
 
-        // ============ PILIH SUGGESTION ============
-        window.pilihSuggestion = function(cmd) {
-            inputEl.value = cmd;
-            tutupSuggestion();
-            sendChat(); // Langsung kirim
-        };
-
-        // ============ TAMPILKAN MENU TOPIK (dari command) ============
-        function tampilkanMenu(filterFn, judul) {
-            if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return `<div class="msg-bot">⚠️ Knowledge base belum ke-load. Cek Console (F12).</div>`;
-            }
-            
-            let list = window.allKnowledge;
-            if (filterFn) list = list.filter(filterFn);
-            
-            if (list.length === 0) {
-                return `<div class="msg-bot">📭 Tidak ada topik dengan kategori ini.</div>`;
-            }
-            
-            const topics = list.map(t => {
-                if (!t.replies || t.replies.length === 0) return null;
-                if (!t.keywords || t.keywords.length === 0) return null;
-                const candidates = t.keywords.filter(k => k.length >= 4 && k.length <= 28);
-                if (candidates.length === 0) return t.keywords[0];
-                return candidates.reduce((a, b) => a.length < b.length ? a : b);
-            }).filter(x => x);
-            
-            const unique = [...new Set(topics)].slice(0, 40);
-            
-            let html = `<div class="msg-bot"><b>📚 ${judul} (${unique.length} topik):</b><br>`;
-            unique.forEach(t => {
-                const safe = String(t).replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                html += `<code onclick="kirimCepat('${safe}')" style="cursor:pointer; margin: 3px 2px 0 0; display:inline-block;">${t}</code>`;
-            });
-            html += `</div>`;
-            return html;
-        }
-
-        window.kirimCepat = function(text) {
-            inputEl.value = text;
-            sendChat();
-        };
-
-        // ============ SMART MATCHING ============
         function findBestReply(userInput) {
             const cmd = userInput.toLowerCase().trim();
-
-            if (COMMANDS[cmd]) {
-                const c = COMMANDS[cmd];
-                return { type: 'menu', filter: c.filter, judul: c.judul };
-            }
-            
-            if (cmd === '.help' || cmd === 'help' || cmd === 'bantuan') {
-                return { type: 'help' };
-            }
-            
             if (!window.allKnowledge || window.allKnowledge.length === 0) {
-                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load.<br>Hard refresh: <b>Ctrl + Shift + R</b>" };
+                return { type: 'text', reply: "⚠️ Knowledge base belum ke-load." };
             }
-
             const input = cmd;
-            
             const sapaan = ['halo', 'hai', 'hi', 'hey', 'assalam', 'pagi', 'siang', 'sore', 'malam'];
             if (sapaan.some(s => input === s || input.startsWith(s + ' ')) && input.length < 20) {
-                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA.<br><br>Ketik <code>.</code> buat buka menu, atau tanya apa aja." };
+                return { type: 'text', reply: "Halo! 👋 Selamat datang di PELITA.<br><br>Ketik <code>.</code> buat buka menu." };
             }
-            
-            if (input.includes('makasih') || input.includes('terima kasih') || 
-                input.includes('thanks') || input.includes('thx') || input === 'tq') {
-                return { type: 'text', reply: "Sama-sama! 😊 Senang bisa bantu." };
+            if (input.includes('makasih') || input.includes('terima kasih') || input.includes('thanks') || input.includes('thx')) {
+                return { type: 'text', reply: "Sama-sama! 😊" };
             }
-
-            let bestMatch = null;
-            let bestScore = 0;
-
+            let bestMatch = null, bestScore = 0;
             for (let topic of window.allKnowledge) {
                 if (!topic.replies || topic.replies.length === 0) continue;
                 if (!topic.keywords || !Array.isArray(topic.keywords)) continue;
-                
                 for (let kw of topic.keywords) {
                     const keyword = String(kw).toLowerCase().trim();
-                    if (keyword.length < 3) continue;
-                    if (keyword.length > 40) continue;
-                    
-                    let matched = false;
-                    let score = 0;
-                    
-                    if (input.includes(keyword)) {
-                        matched = true;
-                        score = keyword.length * 3;
-                    } else if (keyword.includes(input) && input.length >= 4) {
-                        matched = true;
-                        score = input.length * 2;
-                    } else {
+                    if (keyword.length < 3 || keyword.length > 40) continue;
+                    let matched = false, score = 0;
+                    if (input.includes(keyword)) { matched = true; score = keyword.length * 3; }
+                    else if (keyword.includes(input) && input.length >= 4) { matched = true; score = input.length * 2; }
+                    else {
                         const iw = input.split(/\s+/).filter(w => w.length >= 3);
                         const kwd = keyword.split(/\s+/).filter(w => w.length >= 3);
                         const common = iw.filter(w => kwd.includes(w));
-                        if (common.length >= 1 && iw.length <= 4) {
-                            matched = true;
-                            score = common.length * 5;
-                        }
+                        if (common.length >= 1 && iw.length <= 4) { matched = true; score = common.length * 5; }
                     }
-                    
-                    if (matched && score > bestScore) {
-                        bestScore = score;
-                        bestMatch = topic;
-                    }
+                    if (matched && score > bestScore) { bestScore = score; bestMatch = topic; }
                 }
             }
-
-            if (bestMatch && bestMatch.replies && bestMatch.replies.length > 0) {
-                return { type: 'text', reply: bestMatch.replies.join('<br><br>') };
-            }
-
+            if (bestMatch && bestMatch.replies) return { type: 'text', reply: bestMatch.replies.join('<br><br>') };
             return { type: 'nomatch' };
         }
 
-        // ============ HELP ============
-        function tampilkanHelp() {
-            let html = `<div class="msg-bot"><b>📖 Cara pakai:</b><br><br>
-                • Ketik <code>.</code> (titik) buat buka menu saran<br>
-                • Pilih topik dari panel, atau klik command di bawah<br><br>
-                <b>Command utama:</b><br>`;
-            COMMANDS_META.slice(0, 12).forEach(c => {
-                html += `<code onclick="kirimCepat('${c.cmd}')" style="cursor:pointer; margin: 3px 2px 0 0; display:inline-block;">${c.cmd}</code>`;
-            });
-            html += `<br><br><i style="font-size:12px; color:#666;">💡 Ketik <code>.menu</code> buat liat semua topik.</i></div>`;
-            return html;
-        }
-
-        // ============ SEND CHAT ============
         window.sendChat = function() {
             const input = inputEl.value.trim();
             if (!input) return;
-
             messages.innerHTML += `<div class="msg-user">${input.replace(/</g, '&lt;')}</div>`;
-            inputEl.value = '';
-            tutupSuggestion();
-
+            inputEl.value = ''; tutupSuggestion();
             const result = findBestReply(input);
-
             setTimeout(() => {
-                if (result.type === 'menu') {
-                    messages.innerHTML += tampilkanMenu(result.filter, result.judul);
-                } else if (result.type === 'help') {
-                    messages.innerHTML += tampilkanHelp();
-                } else if (result.type === 'nomatch') {
-                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham. 🤔<br><br>Ketik <code>.</code> buat liat menu, atau <code>.menu</code> buat liat topik.</div>`;
+                if (result.type === 'nomatch') {
+                    messages.innerHTML += `<div class="msg-bot">Maaf, aku belum paham. 🤔<br><br>Ketik <code>.</code> buat liat menu.</div>`;
                 } else {
                     messages.innerHTML += `<div class="msg-bot">${result.reply}</div>`;
                 }
                 messages.scrollTop = messages.scrollHeight;
             }, 200);
         };
-
-        // Klik di luar panel = tutup
         document.addEventListener('click', (e) => {
-            if (!suggPanel.contains(e.target) && e.target !== inputEl) {
-                tutupSuggestion();
-            }
+            if (!suggPanel.contains(e.target) && e.target !== inputEl) tutupSuggestion();
         });
     </script>
 </body>
